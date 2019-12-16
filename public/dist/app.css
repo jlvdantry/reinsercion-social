@@ -10808,6 +10808,27 @@ a:hover {
   color: #5d5d5d;
 }
 
+.SISTEMA-DEL-INSTITUT {
+  height: 21px;
+  font-family: Gotham;
+  font-size: 9px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: var(--bluish-grey);
+}
+
+.Rectangle-Copy {
+  width: 1280px;
+  height: 168px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-image: -webkit-gradient(linear, right top, left top, from(var(--teal)), color-stop(45%, #0a6359), color-stop(0%, var(--pine-green)));
+  background-image: linear-gradient(to left, var(--teal), #0a6359 45%, var(--pine-green) 0%);
+}
+
 .footer {
   display: -webkit-box;
   display: flex;

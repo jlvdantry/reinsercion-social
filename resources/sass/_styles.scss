@@ -402,3 +402,24 @@ ul{
   text-align: center;
   color: #5d5d5d;
 }
+
+
+.SISTEMA-DEL-INSTITUT {
+  height: 21px;
+  font-family: Gotham;
+  font-size: 9px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  color: var(--bluish-grey);
+}
+
+.Rectangle-Copy {
+  width: 1280px;
+  height: 168px;
+  object-fit: contain;
+  background-image: linear-gradient(to left, var(--teal), #0a6359 45%, var(--pine-green) 0%);
+}
+

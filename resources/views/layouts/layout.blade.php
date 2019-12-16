@@ -6,15 +6,19 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="content-language" content="es-MX">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>Juzgados civicos</title>
+        <title>SIRS</title>
         <link rel="shortcut icon" href="{{url('')}}/src/img/favicon.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="{{url('')}}/dist/app.css">
     </head>
     <body class="body-custom">
       <header class="container my-3">
-        <div class="row d-flex justify-content-lg-between mx-0">
+        <div class="row d-flex justify-content-lg-start mx-0 align-items-center">
           <div class="imagen-encabezado">
-            <a href="{{url('')}}"><img src="{{url('')}}/src/img/logo-juzgados-civicos.svg" alt="Logotipo del Gobierno de la Ciudad de México"></a>
+            <a href="{{url('')}}"><img src="{{url('')}}/src/img/logo_header.svg" alt="Logotipo del Gobierno de la Ciudad de México"></a>
+          </div>
+          <div class="SISTEMA-DEL-INSTITUT ml-1">
+SISTEMA DE INFORMACIÓN Y SEGUIMIENTO DEL INSTITUTO<br>
+DE REINSERCIÓN SOCIAL DE LA CIUDAD DE MÉXICO
           </div>
         @if (Auth::check())
           <div class="col-lg-4 datos-usuario">
@@ -51,6 +55,8 @@
       @endif
      </div>
     </div>
+  </div>
+  <div class="Rectangle-Copy">
   </div>
 
             @yield('content')
