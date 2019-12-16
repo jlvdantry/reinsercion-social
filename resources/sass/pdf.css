@@ -1,0 +1,160 @@
+.tabla{
+  width: 100%;
+
+thead{
+  background-color: #d8d8d8;
+
+  width: 100%;
+  text-align: center;
+
+
+  th{
+    color: #454545;
+    font-size: .9rem;
+    padding: .625rem;
+  }
+}
+
+tr{
+  text-align: center;
+  border-bottom: solid .0625rem #c1c7d0;
+
+
+td{
+  line-height: 1.2rem;
+  color: #5d5d5d;
+  padding: 1rem;
+  }
+}
+
+}
+.tabladatos{
+  width: 80%;
+}
+.tddatos{
+    /*line-height: 1.2rem;*/
+    color: #5d5d5d;
+    text-align: left;
+    font-size: 1em;
+    /*border: 3px solid green; */
+}
+.tddeclaracion {
+    width: 100%;
+    word-wrap: break-word;
+    border: 1px solid black;
+    border-radius: .1em;
+    padding: .2rem;
+}
+.divide {
+    word-wrap: break-word;
+}
+
+.tablafoto{
+  width: 20%;
+}
+
+.footdej{
+  width: 34%;
+  font-size: .8em;
+}
+
+h3 {
+  text-align: center;
+}
+
+.centra {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  border: .1em solid #33FFF9;
+}
+.cadf{
+  width: 100%;
+  text-align: center;
+}
+
+.motivo {
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid black;
+}
+.lcc {
+   width: 100%;
+   text-align: right;
+   font-size: .6rem;
+}
+
+.lccr {
+   width: 100%;
+   text-align: right;
+   font-size: .6rem;
+   color: red;
+}
+
+.red{
+  color: #e02020!important;
+  font-weight: bold;
+}
+
+.green{
+  @extend .red;
+  color:  #00b140!important;
+}
+
+.orange{
+  @extend .red;
+  color: #fa6400!important;
+}
+
+
+            /** 
+                Set the margins of the page to 0, so the footer and the header
+                can be of the full height and width !
+             **/
+            @page {
+                margin: 0cm 0cm;
+            }
+
+            /** Define now the real margins of every page in the PDF **/
+            body {
+                margin-top: 3cm;
+                margin-left: 2cm;
+                margin-right: 2cm;
+                margin-bottom: 2cm;
+            }
+
+            /** Define the header rules **/
+            header {
+                position: fixed;
+                top: 0cm;
+                left: 0cm;
+                right: 0cm;
+                height: 3cm;
+            }
+
+            /** Define the footer rules **/
+            footer {
+                position: fixed; 
+                bottom: 0cm; 
+                left: 0cm; 
+                right: 0cm;
+                height: 2.5cm;
+            }
+
+.page-break {
+    page-break-after: always;
+}
+
+.iw {
+    text-align: justify;
+    text-justify: inter-word;
+}
+ 
+
+.tablafoto img {
+    width: 5em; /* alter this to move left or right */
+    height: 7.5em; /* alter this to move up or down */
+    object-fit: cover;
+}
