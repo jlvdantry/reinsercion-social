@@ -2,14 +2,13 @@
   width: 100%;
 
 thead{
-  background-color: #d8d8d8;
-
+  background-color: $teal;
   width: 100%;
   text-align: center;
 
 
   th{
-    color: #454545;
+    color: $white;
     font-size: $fs-14;
     padding: .625rem;
   }
@@ -18,12 +17,21 @@ thead{
 tr{
   text-align: center;
   border-bottom: solid .0625rem $gray-06;
-
-
-td{
-  line-height: $fs-19;
-  color: $gray-03;
-  padding: 1rem;
+  td{
+      line-height: $fs-19;
+      color: $brownish-grey;
+      padding: 1rem;
+      p {
+         color: $brownish-grey;
+         font-family: Metropolis;
+         font-size: 13px;
+         font-weight: 500;
+         font-stretch: normal;
+         font-style: normal;
+         line-height: 1.38;
+         letter-spacing: normal;
+         text-align: center;
+      }
   }
 }
 

@@ -417,9 +417,109 @@ ul{
 }
 
 .Rectangle-Copy {
-  width: 1280px;
-  height: 168px;
-  object-fit: contain;
-  background-image: linear-gradient(to left, var(--teal), #0a6359 45%, var(--pine-green) 0%);
+  width: 80%;
+  //height: 168px;
+  //object-fit: contain;
+  //background-image: linear-gradient(to left, $teal, #0a6359 45%, $pine-green 0%);
 }
 
+.Rectangle-Copy-img {
+  width: 100%;
+  object-fit: contain;
+  background-image: url('../src/img/rectangle-copy.svg');
+}
+
+//
+
+.Fill-1 {
+  width: 12px;
+  height: 12px;
+  background-color: $very-light-pink-two;
+}
+
+
+.coolaborador {
+  //width: 1280px;
+  height: 34px;
+  background-color: #00b140;
+}
+
+.Si-eres-colaborador {
+//  width: 774px;
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: $white;
+}
+
+.Olvidaste-tu-contra {
+  width: 158px;
+  height: 16px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 0.2px;
+  text-align: right;
+  color: $shamrock;
+}
+
+.Nuevo-usuario {
+  //width: 86px;
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: right;
+  color: $teal;
+}
+
+
+.Usuarios {
+  //width: 94px;
+  height: 32px;
+  font-family: Metropolis;
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  color: $pine-green;
+}
+
+.Hijos {
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: $brownish-grey;
+}
+
+.Padres {
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  color: #4a4949;
+}

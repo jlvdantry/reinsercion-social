@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@editorjs/editorjs": "^2.15.1",
+        "bootstrap4-toggle": "^3.6.1",
         "font-awesome": "^4.7.0",
         "webpack": "^4.41.3"
     }

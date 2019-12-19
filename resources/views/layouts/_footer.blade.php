@@ -6,7 +6,7 @@
       </div>
 
       <div class="col-lg-6 col-10 text-center text-lg-left mt-3 mt-lg-0">
-        <p>Juzgados civicos</p>
+        <p>Sistema de Información y Seguimiento del Instituto de Reinserción Social de la Ciudad de México</p>
         <p class="font-weight-bold">Dise&#241;ado y operado por la Agencia Digital de Innovación Pública</p>
       </div>
 

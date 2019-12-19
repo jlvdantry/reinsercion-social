@@ -12,7 +12,8 @@
     </head>
     <body class="body-custom">
       <header class="container my-3">
-        <div class="row d-flex justify-content-lg-start mx-0 align-items-center">
+        <div class="row d-flex justify-content-between mx-0 align-items-center">
+         <div class="d-flex align-items-center" >
           <div class="imagen-encabezado">
             <a href="{{url('')}}"><img src="{{url('')}}/src/img/logo_header.svg" alt="Logotipo del Gobierno de la Ciudad de México"></a>
           </div>
@@ -20,6 +21,7 @@
 SISTEMA DE INFORMACIÓN Y SEGUIMIENTO DEL INSTITUTO<br>
 DE REINSERCIÓN SOCIAL DE LA CIUDAD DE MÉXICO
           </div>
+         </div>
         @if (Auth::check())
           <div class="col-lg-4 datos-usuario">
               <a class="usuario dropdown-toggle" href="#" id="menu_usuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,13 +43,33 @@ DE REINSERCIÓN SOCIAL DE LA CIUDAD DE MÉXICO
       @if (Auth::check())
      <div class="pl-0 d-flex col-lg-12">
         <div class="pl-0 pr-0 col-lg-3 d-flex justify-content-between align-items-center">
-         <div id="fechayhora" class="plecat">{{ date('Y-m-d H:i')." ".Auth::user()->getAlcaldia()." ".Auth::user()->getJuzgado() }}</div>
         </div>
         <div class="col-lg-9 d-flex justify-content-end">
          <ul class="nav justify-content-end">
-          @foreach (Auth::user()->getmenus(Auth::user()->getperfiles()->idperfil) as $menu)
-             <li class="nav-item">
-                <a {{ $menu->idh!='' ? 'id='.$menu->idh : '' }} class="nav-link" href="{{ url('') }}/{{ $menu->componente }}">{{ $menu->desmenu }} </a>
+          @foreach (Auth::user()->getmenuspadres(Auth::user()->getperfiles()->idperfil) as $menu)
+             <li class="nav-item dropdown">
+                <a {{ $menu->idh!='' ? 'id='.$menu->idh : '' }} 
+                    @if ($menu->componente=='') 
+                          class="nav-link dropdown-toggle Padres" 
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                          href="#"
+                    @else
+                          class="nav-link Padres" 
+                          href="{{ url('').'/'.$menu->componente }}"
+                    @endif
+                    >
+                   {{ $menu->desmenu }}  
+                </a>
+                @if ($menu->componente=='')
+                    <div class="dropdown-menu">
+                    @foreach (Auth::user()->getmenushijos(Auth::user()->getperfiles()->idperfil,$menu->idmenu) as $menuh)
+                       <a {{ $menuh->id!='' ? 'id='.$menuh->id : '' }}
+                          class="dropdown-item Hijos"
+                          href="{{ url('') }}/{{ $menuh->componente }}">{{ $menuh->desmenu }}
+                      </a>
+                    @endforeach
+                    </div>
+                @endif
              </li>
           @endforeach
          </ul>
@@ -56,9 +78,6 @@ DE REINSERCIÓN SOCIAL DE LA CIUDAD DE MÉXICO
      </div>
     </div>
   </div>
-  <div class="Rectangle-Copy">
-  </div>
-
             @yield('content')
             <!-- Modal messages -->
             <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" data-focus=false aria-labelledby="titleMsgModal" aria-hidden="true">
@@ -105,6 +124,5 @@ DE REINSERCIÓN SOCIAL DE LA CIUDAD DE MÉXICO
             <script type="text/javascript">
                   var base_url = "{{url('')}}"
             </script>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" rel="stylesheet" />
     </body>
 </html>

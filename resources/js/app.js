@@ -9,6 +9,10 @@ import 'bootstrap'
 require('./remover');
 require('./bootstrap');
 require('./bootstrap-select.min.js');
-require('./welcome');
+require('./componentes/utilerias');
+require('./componentes/armagridhorizontal');
+require('./ingreso');
+require('./usuarios');
+require('./creacuenta_usuario');
+require('./grupoactividades');
 require('./validation');
-require('./components/armagridhorizontal');

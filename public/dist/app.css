@@ -10821,12 +10821,101 @@ a:hover {
 }
 
 .Rectangle-Copy {
-  width: 1280px;
-  height: 168px;
+  width: 80%;
+}
+
+.Rectangle-Copy-img {
+  width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  background-image: -webkit-gradient(linear, right top, left top, from(var(--teal)), color-stop(45%, #0a6359), color-stop(0%, var(--pine-green)));
-  background-image: linear-gradient(to left, var(--teal), #0a6359 45%, var(--pine-green) 0%);
+  background-image: url("../src/img/rectangle-copy.svg");
+}
+
+.Fill-1 {
+  width: 12px;
+  height: 12px;
+  background-color: #f0f0f0;
+}
+
+.coolaborador {
+  height: 34px;
+  background-color: #00b140;
+}
+
+.Si-eres-colaborador {
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.Olvidaste-tu-contra {
+  width: 158px;
+  height: 16px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 0.2px;
+  text-align: right;
+  color: #00b140;
+}
+
+.Nuevo-usuario {
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: right;
+  color: #009288;
+}
+
+.Usuarios {
+  height: 32px;
+  font-family: Metropolis;
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  color: #0f4c42;
+}
+
+.Hijos {
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #5d5d5d;
+}
+
+.Padres {
+  height: 24px;
+  font-family: Metropolis;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  color: #4a4949;
 }
 
 .footer {
@@ -11199,12 +11288,12 @@ button {
   width: 100%;
 }
 .tabla thead {
-  background-color: #d8d8d8;
+  background-color: #009288;
   width: 100%;
   text-align: center;
 }
 .tabla thead th {
-  color: #454545;
+  color: #ffffff;
   font-size: 0.9rem;
   padding: 0.625rem;
 }
@@ -11216,6 +11305,17 @@ button {
   line-height: 1.2rem;
   color: #5d5d5d;
   padding: 1rem;
+}
+.tabla tr td p, .tabla tr td h3, .tabla tr td h2, .tabla tr td h5, .tabla tr td .lista ul li, .lista ul .tabla tr td li {
+  color: #5d5d5d;
+  font-family: Metropolis;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  text-align: center;
 }
 
 .red, .orange, .green {

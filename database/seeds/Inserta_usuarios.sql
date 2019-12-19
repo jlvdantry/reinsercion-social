@@ -1,0 +1,1 @@
+INSERT INTO "public"."users" (nombres,email,password,api_token,activo) VALUES ('Administrador','admon@hotmail.com','$2y$10$FaVhS.ExNOpMSxMvBGuXhOBjD9eT.PeYsRL.t93TZpNIRHdSErBJu','ax3oc7UP2Qy1cFTaWMcG4aHqFLH3N6BwfjyI4bzSF4QanPeMyYYH2PwUtUZG',1);
