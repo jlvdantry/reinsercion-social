@@ -26,7 +26,8 @@ Route::get('/', function () {
 })->name('login');
 
 Route::get('mail_OlvidoContrasena', function () {
-    $user = App\User::getconCatalogosbyID(20);
+    $user = App\User::getconCatalogosbyID(2);
+    log::debug('routes/web.php l_OlvidoContrasena user='.print_r($user,true));
     return new App\Mail\OlvidoContrasena($user);
 });
 

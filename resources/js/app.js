@@ -18,4 +18,5 @@ require('./grupoactividades');
 require('./actividades');
 require('./horarios');
 require('./altahorario');
+require('./restaura');
 require('./validation');

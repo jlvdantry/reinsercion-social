@@ -44,8 +44,8 @@ select * from infractores where idboleta=(select id from boletas where boleta_re
 --select * from infracciones;
 --select * from menus;
 select * from users where email='jlvdantry@hotmail.com';
-select * from perfiles_users ;
-select * from perfiles_menus ;
+--select * from perfiles_users ;
+--select * from perfiles_menus ;
 --delete from users where email='jlvdantry@hotmail.com';
 
 fin

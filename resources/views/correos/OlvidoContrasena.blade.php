@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="{{ url('dist/app.css') }}">
-  <title>Ingreso de Programas Internos de Protección Civil</title>
+  <title>SIRS</title>
   <style>
     html{box-sizing: border-box;}
     html,body{margin: 0; padding: 0;}
@@ -35,7 +35,7 @@
   <table class="container" style="margin: 0 auto; background: #fff;">
     <tbody>
       <tr>
-        <td><img style="padding: 2rem; max-width: 100%;" src="{{ url('src/img/logo-juzgados-civicos.svg') }}" alt=""></td>
+        <td><img style="padding: 2rem; max-width: 100%;" src="{{ url('src/img/logo-reinsercion.svg') }}" alt=""></td>
       </tr>
 
 
@@ -54,8 +54,10 @@
 
             <p style="padding: 0 2rem; font-size: .9rem; color: #5d5d5d; text-align: left; font-weight: bold;">Apellido paterno: <span style="font-weight: normal;">{{$user->ape_pat}}</span> </p>
             <p style="padding: 0 2rem; font-size: .9rem; color: #5d5d5d; text-align: left; font-weight: bold;">Apellido materno: <span style="font-weight: normal;">{{$user->ape_mat}}</span> </p>
-            <p style="padding: 0 2rem; font-size: .9rem; color: #5d5d5d; text-align: left; font-weight: bold;">Juzgado: <span style="font-weight: normal;">{{$user->desjuzgado}}</span></p>
-            <p style="padding: 0 2rem; font-size: .9rem; color: #5d5d5d; text-align: left; font-weight: bold;">Juzgado dirección: <span style="font-weight: normal;">{{$user->dirjuzgado}}</span></p>
+            <p style="padding: 0 2rem; font-size: .9rem; color: #5d5d5d; text-align: left; font-weight: bold;">Puesto: <span style="font-weight: normal;">{{$user->puesto}}</span></p>
+            <p style="padding: 0 2rem; font-size: .9rem; color: #5d5d5d; text-align: left; font-weight: bold;">Télefono: <span style="font-weight: normal;">{{$user->num_telefono}}</span></p>
+            <p style="padding: 0 2rem; font-size: .9rem; color: #5d5d5d; text-align: left; font-weight: bold;">Tipo de usuario: <span style="font-weight: normal;">{{$user->desperfil}}</span></p>
+
           </td>
         </tr>
 
@@ -94,7 +96,7 @@
                     <tr>
                       <td><img src="{{ url('src/img/gobierno-y-adip.svg') }}" alt=""></td>
                       <td class="mostrar" style="color: #fff; margin-left: 1rem;">
-                        <p style="font-size: .7rem; line-height: .75rem; color: #fff; margin-bottom: 0;">Nueva Cultura Cívica de la Ciudad de México</p>
+                        <p style="font-size: .7rem; line-height: .75rem; color: #fff; margin-bottom: 0;">Sistema de información y seguimiento del instituto de reinserción social de la ciudad de méxico.</p>
                         <p style="font-size: .7rem; line-height: .75rem; color: #fff; margin-top:0; font-weight:bold;">Diseñado y operado por la Agencia Digital de Innovación Pública</p>
                       </td>
                     </tr>
@@ -115,7 +117,7 @@
 
                     <tr>
                       <td class="mostrar" style="color: #fff;">
-                        <p style="font-size: .7rem; line-height: .75rem; color: #fff; margin-bottom: 0;">Nueva Cultura Cívica de la Ciudad de México</p>
+                        <p style="font-size: .7rem; line-height: .75rem; color: #fff; margin-bottom: 0;">>Sistema de información y seguimiento del instituto de reinserción social de la ciudad de méxico.</p>
                         <p style="font-size: .7rem; line-height: .75rem; color: #fff; margin-top:0; font-weight:bold;">Diseñado y operado por la Agencia Digital de Innovación Pública</p>
                       </td>
                     </tr>
