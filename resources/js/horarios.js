@@ -19,7 +19,7 @@
                                                , fecha01 : { header : 'Fechas', 'class' : '' }
                                                , horario : { header : 'Horario', 'class' : '' }
                                                , desestatus : { header : 'Estatus','class' :  'estatushorario(campos[y])' }
-                                               , ver : { header : 'Ver', 'boton' : true ,'classb' : 'btn-ver', 'funcion' : 'ver3' }
+                                              /* , ver : { header : 'Ver', 'boton' : true ,'classb' : 'btn-ver', 'funcion' : 'ver3' } */
                                                , baja : { header : 'Eliminar', 'boton' : true ,'classb' : 'btn-eliminar', 'funcion' : 'eli_h' }
                                              }
                                   armadatagrid(data,dis,'dg_usuarios',true);
