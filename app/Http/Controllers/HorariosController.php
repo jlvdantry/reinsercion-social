@@ -6,6 +6,7 @@ use App\horarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use DateTime;
 
 class HorariosController extends Controller
 {
@@ -20,12 +21,12 @@ class HorariosController extends Controller
 
       if ($request->has('descripcion')) {
         if (strlen($request->descripcion)>0) {
-           array_push($filtro,['desactividad', 'like',"%$request->descripcion%"]);
+           array_push($filtro,['acti.descripcion', 'like',"%$request->descripcion%"]);
         }
       }
 
       if ($request->has('estatus')) {
-        if (strlen($request->idperfil)!='') {
+        if (strlen($request->estatus)!='') {
            array_push($filtro,['estatus', '=',$request->estatus]);
         }
       }
@@ -55,6 +56,9 @@ class HorariosController extends Controller
     public function store(Request $request)
     {
 
+      if ($request->get('sesiones')=="") { 
+                   return response()->json([ 'errors' => ['sesiones' => 'Debe de seleccionar la cantidad de sesiones ']],403);
+      }
       $datos = 
          [  
                  'idgrupo' => $request->get('idgrupo') ,
@@ -90,6 +94,22 @@ class HorariosController extends Controller
             if ($request->get($quefecha)=='') {
                    return response()->json([ 'errors' => [$quefecha => 'la fecha '.$i.' no ha sido tecleada']],403);
             }
+            if ($quefecha=="fecha01") {
+                      $datetime1 = date("y-m-d", strtotime("today"));
+                      $datetime2 = new DateTime($request->get($quefecha));
+                      Log::debug('HorariosControlle fecha1='.print_r($datetime1,true).' fecha2='.print_r($datetime2,true));
+                      if ($datetime2 < $datetime1) {
+                         return response()->json([ 'errors' => [$quefecha => 'La fecha '.$i.' debe ser igual o mayor al dia de hoy']],430);
+                      }
+           } else {
+                      $quefechaant='fecha'.str_pad($i-1,2,'0',STR_PAD_LEFT);
+                      $datetime1 = new DateTime($request->get($quefechaant));
+                      $datetime2 = new DateTime($request->get($quefecha));
+                      Log::debug('HorariosControlle fecha1='.print_r($datetime1,true).' fecha2='.print_r($datetime2,true));
+                      if ($datetime2 < $datetime1) {
+                         return response()->json([ 'errors' => [$quefecha => 'La fecha '.$i.' debe ser igual o mayor que la fecha '.($i-1)]],430);
+                      }
+           }
         }
 
 

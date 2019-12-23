@@ -110,7 +110,7 @@
           </div>
           <div class="col-md-2 mb-3" name="fechas">
             <label class="form-label-custom" for="fecha01">*Fecha de sesión 01:</label>
-            <input type="date" name="diahechos" id="fecha01" class="form-control form-control-custom street-names" maxlength="10" value="" >
+            <input type="date" name="diahechos" id="fecha01" min="{{ date('Y-m-d') }}" class="form-control form-control-custom street-names" maxlength="10" value="" >
           </div>
           <div class="col-md-2 mb-3" name="fechas">
             <label class="form-label-custom" for="fecha02">*Fecha de sesión 02:</label>
@@ -154,7 +154,7 @@
         <div class="Lugar-de-imparticin mt-3 mb-0">Lugar de impartición</div>
                 <div class="row">
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="calle_h">Calle:</label>
+                    <label class="form-label-custom" for="calle_h">Calle*:</label>
                     <input autofocus type="text" name="calle_h" id="calle_h" class="form-control form-control-custom street-names" maxlength="30" value="" placeholder="Escribe la calle" autofocus required>
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
@@ -162,14 +162,14 @@
                   </div>
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="exterior_h">No. exterior:</label>
+                    <label class="form-label-custom" for="exterior_h">Numero exterior*:</label>
                     <input type="text" name="exterior_h" id="exterior_h" class="form-control form-control-custom street-names" maxlength="10" value="" placeholder="00" required>
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
                     </div>
                   </div>
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="interior_h">No. interior:</label>
+                    <label class="form-label-custom" for="interior_h">Numero interior:</label>
                     <input type="text" name="interior_h" id="interior_h" class="form-control form-control-custom street-names" maxlength="10" value="" placeholder="00">
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
@@ -180,7 +180,7 @@
                 <div class="row">
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="cp_h">Código postal:</label>
+                    <label class="form-label-custom" for="cp_h">Código postal*:</label>
                     <input type="text" name="cp_h" id="cp_h" class="form-control form-control-custom numbers" maxlength="5" value="" placeholder="00000" pattern="^[0-9]{4,5}$" required>
                     <div class="invalid-feedback">
                       Ingresa los cuatro o cinco dígitos de tu código postal
@@ -188,14 +188,14 @@
                   </div>
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="colonia_h">Colonia:</label>
+                    <label class="form-label-custom" for="colonia_h">Colonia*:</label>
                     <input type="text" name="colonia_h" id="colonia_h" class="form-control form-control-custom street-names" maxlength="30" value="" placeholder="Escribe la colonia" required>
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
                     </div>
                   </div>
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="id_alcaldia_h">*Alcaldía:</label>
+                    <label class="form-label-custom" for="id_alcaldia_h">Alcaldía*:</label>
                     <select class="form-control form-control-custom" id="id_alcaldia_h" name="id_alcaldia_h" required>
                       <option disabled value="" selected hidden>Selecciona una</option>
                       @foreach ($data['alcaldias'] as $alcaldia)

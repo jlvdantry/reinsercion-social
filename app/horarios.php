@@ -14,9 +14,13 @@ class horarios extends Model
     {
         $wlfiltro="";
         foreach ($filtro as $k => $v) {
-               $wlfiltro.=" and ".$filtro[$k][0]." ".$filtro[$k][1]." '".$filtro[$k][2]."'";
+               if ($wlfiltro=="") {
+                   $wlfiltro.=$filtro[$k][0]." ".$filtro[$k][1]." '".$filtro[$k][2]."'";
+               } else {
+                   $wlfiltro.=" and ".$filtro[$k][0]." ".$filtro[$k][1]." '".$filtro[$k][2]."'";
+               }
         }
-        $wlfiltro=$wlfiltro.($wlfiltro!="" ? " where " : "");
+        $wlfiltro=($wlfiltro!="" ? " where ".$wlfiltro : "");
 
       $datos = DB::select('select horarios.*'.
                                   ', to_char(horade,\'HH:MI\') || \' - \' || to_char(horahasta,\'HH:MI\') horario '.
