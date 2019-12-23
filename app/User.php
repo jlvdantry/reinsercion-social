@@ -70,9 +70,9 @@ class User extends Authenticatable
         }
     }
 
-    public static function getJuecesJuzgado($id)
+    public static function getTalleristas()
     {
-      Log::debug('app/User.php getJuecesJuzgado id='.$id);
+      Log::debug('app/User.php getTalleristas ');
       $datos = DB::select('select users.*'.
                 ',case when activo=0 then \'Pendiente\''.
                                                ' when activo=1 then \'Aceptado\''.
@@ -84,12 +84,10 @@ class User extends Authenticatable
                                           '(select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) desperfil '.
                                   ',(select id from perfiles pe where pe.id in '.
                                          '(select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) idperfil '.
-                                  ',(select juzgado from juzgados where id = users.idjuzgado) desjuzgado'.
-                                  ',(select direccion from juzgados where id = users.idjuzgado) dirjuzgado'.
                    ' from users '.
                    ' left join perfiles_users pu on  idusuario=users.id '.
-                   ' where pu.idperfil=1 and idjuzgado=:id'
-                   ,['id' => $id]);
+                   ' where pu.idperfil=3 '
+                   );
       Log::debug('app/User.php getconCatalogosbyID id='.print_r($datos,true));
       return $datos;
 

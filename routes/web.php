@@ -13,10 +13,9 @@
 use Illuminate\Support\Facades\Log;
 use App\User;
 use App\Perfiles;
-use App\Alcaldias;
-use App\Juzgados;
+use App\alcaldias;
 use App\Entidades;
-use App\Infracciones;
+use App\grupo_actividades;
 use App\Http\Controllers\userController;
 log::debug('routes/web.php inioio URL='.URL::current().' Request::path()='.\Request::path());
 Route::get('/', function () {
@@ -80,6 +79,20 @@ Route::group(['middleware' => ['auth:web']], function() {
         return view('notienecuenta')->with('perfiles', $perfiles);
     });
 
+    Route::get('/altahorario', function () {
+        //$perfiles = Perfiles::all();
+        $grupos = App\grupo_actividades::all();
+        $alcaldias = App\alcaldias::all();
+        $talleristas = App\User::getTalleristas();
+           $data = array (
+              'alcaldias' => $alcaldias,
+              'grupos' => $grupos,
+              'talleristas' => $talleristas
+           );
+
+        return view('altahorario')->with('data',$data);
+    });
+
     log::debug('routes/web.php Entro a middleware web '.URL::current());
     Route::get('/usuarios-registrados', function () {
         log::debug('routes/web.php va a ejecutar '.URL::current());
@@ -93,7 +106,12 @@ Route::group(['middleware' => ['auth:web']], function() {
          return view('grupo-actividades');
     });
     Route::get('/actividades', function () {
-         return view('actividades');
+         $grupos = App\grupo_actividades::all();
+         return view('actividades')->with('grupos',$grupos);
+    });
+    Route::get('/horarios', function () {
+         //$grupos = App\grupo_actividades::all();
+         return view('horarios-registados');
     });
 
     Route::get('/registro-inmueble-exitoso/{id}', function ($id) {

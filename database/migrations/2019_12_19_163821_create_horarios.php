@@ -41,7 +41,6 @@ class CreateHorarios extends Migration
             $table->string('id_alcaldia_h')->nullable()->comment('Alcaldia donde se impartira el taller')->default('');
             $table->integer('cp_h')->nullable()->comment('Codigo postal donde se impartira el taller')->default(0);
             $table->integer('estatus')->comment('1=activo,0=inactivo')->default('0');
-
         });
     }
 

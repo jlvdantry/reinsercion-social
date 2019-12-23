@@ -42,8 +42,14 @@ Route::group(['middleware' => 'auth:web'], function() {
      Route::delete('grupo_actividades/{id}', 'GrupoActividadesController@destroy');
 
      Route::get('actividades', 'ActividadesController@index');
+     Route::get('actividades/0/{id}', 'ActividadesController@indexporgrupo');
      Route::post('actividades', 'ActividadesController@store');
      Route::delete('actividades/{id}', 'ActividadesController@destroy');
+
+     Route::get('horarios', 'HorariosController@index');
+     Route::post('horarios', 'HorariosController@store');
+     Route::delete('horarios/{id}', 'HorariosController@destroy');
+
 
      Route::get('users/estadistica', 'userController@estadistica');
      Route::post('boletas', 'inmueblesController@store');

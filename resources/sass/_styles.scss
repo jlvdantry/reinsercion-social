@@ -523,3 +523,23 @@ ul{
   letter-spacing: normal;
   color: #4a4949;
 }
+
+.Lugar-de-imparticin {
+//  width: 144px;
+  height: 17px;
+  font-family: Metropolis;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--pine-green);
+}
+
+
+.Rectangle {
+  width: 4px;
+  height: 52px;
+  background-color: $teal;
+}

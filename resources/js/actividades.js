@@ -12,13 +12,15 @@
                             success: function(data){
                             if (data.length>0) {
                                     var dis = { id : { header : 'id', 'class' : 'd-none' }
-                                               , idgrupo : { header : 'Grupo', 'class' : '' }
+                                               , desgrupo : { header : 'Grupo', 'class' : '' }
                                                , descripcion : { header : 'Actividad', 'class' : '' }
                                                , ver : { header : 'Eliminar', 'boton' : true ,'classb' : 'btn-eliminar', 'funcion' : 'eli_a' }
                                              }
                                   armadatagrid(data,dis,'dg_usuarios',true);
                             } else {
-                                  crearMensaje(true,"Atención", ' No se encontraron registros');
+                                  crearMensaje(true,"Atención", ' No se encontraron registros').then( function () {
+                                                $('#descripcionb')[0].focus();
+                                            });
                                   return;
                             }
                          },
@@ -52,7 +54,9 @@
                             error: function( jqXhr, textStatus, errorThrown ){
                                   var errores=jqXhr.responseJSON.errors;
                                   for (var x in errores) {
-                                        crearMensaje(true,"Error", errores[x]);
+                                        crearMensaje(true,"Error", errores[x]).then( function() {
+                                                 $('#'+x)[0].focus()
+                                               });
                                         break;
                                  }
                        }

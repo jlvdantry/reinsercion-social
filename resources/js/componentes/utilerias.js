@@ -71,8 +71,11 @@ window.crearMensaje = function (error,titulo,mensaje,tiempo=2000) {
      };
 
      window.estatususuario = function (x) {
-         //console.log('x='+x);
          return x=='Aceptado' ? 'font-weight-normal text-success' : 'font-weight-bold text-danger' ;
+     }
+
+     window.estatushorario = function (x) {
+         return x=='Activo' ? 'font-weight-normal text-success' : 'font-weight-bold text-danger' ;
      }
      /*
          parametro 1=arreglo de registrso a desplegar

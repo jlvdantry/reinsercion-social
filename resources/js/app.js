@@ -15,4 +15,7 @@ require('./ingreso');
 require('./usuarios');
 require('./creacuenta_usuario');
 require('./grupoactividades');
+require('./actividades');
+require('./horarios');
+require('./altahorario');
 require('./validation');

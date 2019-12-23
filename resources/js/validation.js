@@ -99,6 +99,17 @@ $(document).ready(function() {
             }
         });
 
+        $(".horas").bind("keypress", function(event) {
+            if (event.charCode != 0) {
+                var regex = new RegExp("^[0-9-:]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            }
+        });
+
 });
 
 //Permite letras y números, pues sirven para los nombres de calles
