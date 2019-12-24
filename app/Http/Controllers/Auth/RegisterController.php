@@ -161,6 +161,7 @@ class RegisterController extends Controller
             $user = $this->create_usuario($request->all());
             $pe = new Perfiles_users ( [ "idusuario" => $user->id, "idperfil" => $request['idperfil']] );
             $pe->save();
+            Mail::to($user->email)->send(new UserRegistrado($user->getconCatalogosbyID($user->id)));
         }
         return response()->json(['data' => $user->toArray()], 200);
         //$this->registered($request, $user);

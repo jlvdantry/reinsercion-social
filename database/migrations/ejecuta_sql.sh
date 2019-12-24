@@ -47,7 +47,7 @@ select * from infractores where idboleta=(select id from boletas where boleta_re
 --select * from horarios;
 --select * from perfiles_users ;
 --select * from perfiles_menus ;
-delete from users where email='jlvdantry@yahoo.com';
+delete from users where email='jlvdantry@hotmail.com';
 --drop function xcambio_fecha(TIMESTAMP);
 fin
 psql -h $DB_HOST -d $DB_DATABASE -U $DB_USERNAME  < $0.sql
