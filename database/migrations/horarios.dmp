@@ -1,0 +1,269 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: horarios; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE horarios (
+    id bigint NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone,
+    idgrupo integer NOT NULL,
+    idactividad integer NOT NULL,
+    grupo character varying(3) NOT NULL,
+    horade time(0) without time zone NOT NULL,
+    horahasta time(0) without time zone NOT NULL,
+    idtallerista integer NOT NULL,
+    cupo integer DEFAULT 0 NOT NULL,
+    sesiones integer DEFAULT 0 NOT NULL,
+    fecha01 date,
+    fecha02 date,
+    fecha03 date,
+    fecha04 date,
+    fecha05 date,
+    fecha06 date,
+    fecha07 date,
+    fecha08 date,
+    fecha09 date,
+    fecha10 date,
+    calle_h character varying(40) DEFAULT ''::character varying,
+    exterior_h character varying(10) DEFAULT ''::character varying,
+    interior_h character varying(10) DEFAULT ''::character varying,
+    colonia_h character varying(255) DEFAULT ''::character varying,
+    id_alcaldia_h character varying(255) DEFAULT ''::character varying,
+    cp_h integer DEFAULT 0,
+    estatus integer DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.horarios OWNER TO postgres;
+
+--
+-- Name: COLUMN horarios.idgrupo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.idgrupo IS 'id del grupo de actividades';
+
+
+--
+-- Name: COLUMN horarios.idactividad; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.idactividad IS 'id de la actividad';
+
+
+--
+-- Name: COLUMN horarios.grupo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.grupo IS 'grupo';
+
+
+--
+-- Name: COLUMN horarios.horade; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.horade IS 'horario de inicio';
+
+
+--
+-- Name: COLUMN horarios.horahasta; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.horahasta IS 'horario hasta';
+
+
+--
+-- Name: COLUMN horarios.idtallerista; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.idtallerista IS 'id del usuario que es tallerista';
+
+
+--
+-- Name: COLUMN horarios.cupo; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.cupo IS 'cupo del grupo';
+
+
+--
+-- Name: COLUMN horarios.sesiones; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.sesiones IS 'numero de sesiones';
+
+
+--
+-- Name: COLUMN horarios.fecha01; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha01 IS 'fecha de la session 01';
+
+
+--
+-- Name: COLUMN horarios.fecha02; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha02 IS 'fecha de la session 02';
+
+
+--
+-- Name: COLUMN horarios.fecha03; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha03 IS 'fecha de la session 03';
+
+
+--
+-- Name: COLUMN horarios.fecha04; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha04 IS 'fecha de la session 04';
+
+
+--
+-- Name: COLUMN horarios.fecha05; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha05 IS 'fecha de la session 05';
+
+
+--
+-- Name: COLUMN horarios.fecha06; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha06 IS 'fecha de la session 06';
+
+
+--
+-- Name: COLUMN horarios.fecha07; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha07 IS 'fecha de la session 07';
+
+
+--
+-- Name: COLUMN horarios.fecha08; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha08 IS 'fecha de la session 08';
+
+
+--
+-- Name: COLUMN horarios.fecha09; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha09 IS 'fecha de la session 09';
+
+
+--
+-- Name: COLUMN horarios.fecha10; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.fecha10 IS 'fecha de la session 10';
+
+
+--
+-- Name: COLUMN horarios.calle_h; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.calle_h IS 'calle donde se impartira el taller';
+
+
+--
+-- Name: COLUMN horarios.exterior_h; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.exterior_h IS 'numero exterior donde se impartira el taller';
+
+
+--
+-- Name: COLUMN horarios.interior_h; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.interior_h IS 'numero interior donde se impartira el taller';
+
+
+--
+-- Name: COLUMN horarios.colonia_h; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.colonia_h IS 'colonia donde se impartira el taller';
+
+
+--
+-- Name: COLUMN horarios.id_alcaldia_h; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.id_alcaldia_h IS 'Alcaldia donde se impartira el taller';
+
+
+--
+-- Name: COLUMN horarios.cp_h; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.cp_h IS 'Codigo postal donde se impartira el taller';
+
+
+--
+-- Name: COLUMN horarios.estatus; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN horarios.estatus IS '1=activo,0=inactivo';
+
+
+--
+-- Name: horarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE horarios_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.horarios_id_seq OWNER TO postgres;
+
+--
+-- Name: horarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE horarios_id_seq OWNED BY horarios.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY horarios ALTER COLUMN id SET DEFAULT nextval('horarios_id_seq'::regclass);
+
+
+--
+-- Name: horarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY horarios
+    ADD CONSTRAINT horarios_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -4,6 +4,7 @@ if ($('main')[0].id=='notienecuenta') {
         $("#alc-ape_mat").keyup(function(e){ e.currentTarget.value=e.currentTarget.value.toLocaleUpperCase(); })
         $("#puesto").keyup(function(e){ e.currentTarget.value=e.currentTarget.value.toLocaleUpperCase(); })
         $("#alc-nombres").focus();
+  $(".boton-regresar").removeClass('d-none');
   $("#creacuenta-usuario").click(function(e){
     e.preventDefault();
     var forms = document.getElementsByClassName('needs-validation-alcaldia');
@@ -12,8 +13,14 @@ if ($('main')[0].id=='notienecuenta') {
       return;
     }
     if ($('#alc-email')[0].value!=$('#alc-email-confirma')[0].value) {
-        crearMensaje(true,"Atención", 'La confirmación del email no checa').then(function() {
+        crearMensaje(true,"Atención", 'La confirmación del email es incorrecta').then(function() {
              $('#alc-email-confirma')[0].focus();
+        });
+        return;
+    }
+    if ($('#alc-password')[0].value!=$('#alc-password_confirma')[0].value) {
+        crearMensaje(true,"Atención", 'La confirmación de la contraseña es incorrecta').then(function() {
+             $('alc-password_confirma')[0].focus();
         });
         return;
     }
@@ -26,7 +33,7 @@ if ($('main')[0].id=='notienecuenta') {
       password :  $('#alc-password')[0].value,
       puesto :  $('#puesto')[0].value,
       num_telefono :  $('#num_telefono')[0].value,
-      activo :  $('#activo')[0].value,
+      activo :  $("input[name='activo']:checked").val(),
       idperfiltallerista :  $('#idperfiltallerista')[0].value,
       password_confirmation :  $('#alc-password_confirma')[0].value
     };

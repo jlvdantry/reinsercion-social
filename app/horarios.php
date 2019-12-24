@@ -24,6 +24,7 @@ class horarios extends Model
 
       $datos = DB::select('select horarios.*'.
                                   ', to_char(horade,\'HH:MI\') || \' - \' || to_char(horahasta,\'HH:MI\') horario '.
+                                  ', xcambio_fecha(fecha01,fecha02,fecha03,fecha04,fecha05,fecha06,fecha07,fecha08,fecha09,fecha10,sesiones)  fechas'.
                                   ',(select descripcion from grupo_actividades ga where ga.id=horarios.idgrupo) desgrupo '.
                                   ', acti.descripcion desactividad '.
                                   ',case '.

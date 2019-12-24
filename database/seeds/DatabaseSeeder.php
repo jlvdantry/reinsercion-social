@@ -16,5 +16,11 @@ class DatabaseSeeder extends Seeder
         $this->call(Menus::class);
         $this->call(Perfiles_menus::class);
         $this->call(Perfiles_users::class);
+        $this->call(Alcaldias::class);
+        $this->call(Acercamientos::class);
+        $this->call(Comoseenteros::class);
+        $this->call(Etnicas::class);
+        $this->call(Estudios::class);
+        $this->call(Entidades::class);
     }
 }

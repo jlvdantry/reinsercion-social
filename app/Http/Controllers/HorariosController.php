@@ -59,6 +59,10 @@ class HorariosController extends Controller
       if ($request->get('sesiones')=="") { 
                    return response()->json([ 'errors' => ['sesiones' => 'Debe de seleccionar la cantidad de sesiones ']],403);
       }
+      if ($request->get('horahasta')<$request->get('horade')) { 
+                   return response()->json([ 'errors' => ['horahasta' => 'El horario registrado esta erroneo']],403);
+      }
+
       $datos = 
          [  
                  'idgrupo' => $request->get('idgrupo') ,

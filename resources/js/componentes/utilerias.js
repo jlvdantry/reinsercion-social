@@ -71,7 +71,7 @@ window.crearMensaje = function (error,titulo,mensaje,tiempo=2000) {
      };
 
      window.estatususuario = function (x) {
-         return x=='Aceptado' ? 'font-weight-normal text-success' : 'font-weight-bold text-danger' ;
+         return x=='Activo' ? 'font-weight-normal text-success' : 'font-weight-bold text-danger' ;
      }
 
      window.estatushorario = function (x) {

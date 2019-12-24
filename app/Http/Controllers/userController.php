@@ -28,7 +28,8 @@ class userController extends Controller
   {
       $datos = User::select('*',DB::Raw(
                 'case when activo=0 then \'Pendiente\''.
-                                                              ' when activo=1 then \'Aceptado\''.
+                                                              ' when activo=0 then \'Inactivo\''.
+                                                              ' when activo=1 then \'Activo\''.
                                                               ' when activo=2 then \'Rechazado\''.
                                                               ' when activo=3 then \'Eliminado\''.
                                                               ' else \'Desconocido\' end desactivo '.
@@ -173,8 +174,8 @@ class userController extends Controller
       //Log::debug('userControler index='.print_r($filtro,true));
       //$datos = Imeis::select('*',DB::Raw('codigo_sms_estatus_reg AS candado'))->where($filtro)->get();
       $datos = User::select('*',DB::Raw(
-                'case when activo=0 then \'Pendiente\''.
-                                               ' when activo=1 then \'Aceptado\''.
+                'case when activo=0 then \'Inactivo\''.
+                                               ' when activo=1 then \'Activo\''.
                                                ' when activo=2 then \'Rechazado\''.
                                                ' when activo=3 then \'Eliminado\''.
                                                ' else \'Desconocido\' end desactivo '.

@@ -39,19 +39,20 @@ select * from infractores where idboleta=(select id from boletas where boleta_re
 --select * from infractores where idboleta=(select id from boletas where boleta_remision='456345634563');
 --delete from boletas where (select count(*) from infractores infra where  infra.idboleta=boletas.id)=0;
 --select * from migrations
+--delete from migrations where id=94;
 --select * from boletas;
 --update boletas set estatus=0,expediente=0 where boleta_remision='78787';
 --select * from infracciones;
 --select * from menus;
-select * from users where email='jlvdantry@hotmail.com';
+--select * from horarios;
 --select * from perfiles_users ;
 --select * from perfiles_menus ;
---delete from users where email='jlvdantry@hotmail.com';
-
+delete from users where email='jlvdantry@yahoo.com';
+--drop function xcambio_fecha(TIMESTAMP);
 fin
 psql -h $DB_HOST -d $DB_DATABASE -U $DB_USERNAME  < $0.sql
 ##psql -U $DB_USERNAME  < $0.sql     ## para crear la bse de datos
-##pg_dump -s -t users -h $DB_HOST -U $DB_USERNAME $DB_DATABASE > database/migrations/users.dmp
+##pg_dump -s -t horarios -h $DB_HOST -U $DB_USERNAME $DB_DATABASE > database/migrations/horarios.dmp
 ##pg_dump -s -t inmuebles -h $DB_HOST -U $DB_USERNAME $DB_DATABASE >> database/migrations/inmuebles.dmp
 ##pg_dump -s -t users -h $DB_HOST -U $DB_USERNAME $DB_DATABASE >> database/migrations/users.dmp
 ##pg_dump -s -h $DB_HOST -U $DB_USERNAME $DB_DATABASE > esquema_pc.sql

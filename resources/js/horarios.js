@@ -16,7 +16,7 @@
                                     var dis = { id : { header : 'id', 'class' : 'd-none' }
                                                , desgrupo : { header : 'Grupo de actividades', 'class' : '' }
                                                , desactividad :  { header : 'Actividad', 'class' : '' }
-                                               , fecha01 : { header : 'Fechas', 'class' : '' }
+                                               , fechas : { header : 'Fechas', 'class' : '' }
                                                , horario : { header : 'Horario', 'class' : '' }
                                                , desestatus : { header : 'Estatus','class' :  'estatushorario(campos[y])' }
                                               /* , ver : { header : 'Ver', 'boton' : true ,'classb' : 'btn-ver', 'funcion' : 'ver3' } */

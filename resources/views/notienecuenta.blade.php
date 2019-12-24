@@ -1,12 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-  <div class="pleca">
-    <div class="container">
-        <div class="boton-regresar">
-           <a id="boton-regresar" href="./usuarios-registrados"><img src="src/img/flecha-before.svg" alt=""> Regresar</a>
-        </div>
-    </div>
-  </div>
 
   <main id="notienecuenta" >
     <section id="alcaldia-container" class="container">
@@ -64,7 +57,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label class="form-label-custom" for="alc-email-confirma">*Confirmar email:</label>
-            <input type="password" class="form-control form-control-custom" id="alc-email-confirma" placeholder="correo@dominio.com" required>
+            <input type="text" class="form-control form-control-custom" id="alc-email-confirma" placeholder="correo@dominio.com" required>
             <div class="invalid-feedback">
               Asegúrate de introducir correctamente tu correo electrónico
             </div>
@@ -116,8 +109,15 @@
             <label class="form-check-label label-custom-check" for="activo">
               Activo
             </label>
-            <input class="form-check-input ml-2" type="checkbox" name="activo" id="activo" value="1" checked>
+            <input class="form-check-input ml-2" type="radio" name="activo" id="activo" value="1" checked>
            </div>
+           <div class="form-check-inline">
+            <label class="form-check-label label-custom-check" for="inactivo">
+              Inactivo
+            </label>
+            <input class="form-check-input ml-2" type="radio" name="activo" id="inactivo" value="0" >
+           </div>
+
           </div>
 
 

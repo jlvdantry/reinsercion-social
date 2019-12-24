@@ -2,6 +2,8 @@ if ($('main')[0].id=='altahorario') {
   fechas=$("div[name='fechas']");
   fechas.addClass('d-none');
   $("#idgrupo").focus();
+  $(".boton-regresar").removeClass('d-none');
+  $("#boton-regresar").attr("href", "./horarios");
 
   $("#idgrupo").change(function(e){
     $.ajax({

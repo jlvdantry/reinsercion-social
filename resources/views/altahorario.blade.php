@@ -1,12 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-  <div class="pleca">
-    <div class="container">
-        <div class="boton-regresar">
-           <a id="boton-regresar" href="./horarios"><img src="src/img/flecha-before.svg" alt=""> Regresar</a>
-        </div>
-    </div>
-  </div>
 
   <main id="altahorario" >
     <section id="alcaldia-container" class="container">
@@ -111,6 +104,10 @@
           <div class="col-md-2 mb-3" name="fechas">
             <label class="form-label-custom" for="fecha01">*Fecha de sesión 01:</label>
             <input type="date" name="diahechos" id="fecha01" min="{{ date('Y-m-d') }}" class="form-control form-control-custom street-names" maxlength="10" value="" >
+            <div class="invalid-feedback">
+              La fecha debe ser igual o mayor al dia de hoy
+            </div>
+
           </div>
           <div class="col-md-2 mb-3" name="fechas">
             <label class="form-label-custom" for="fecha02">*Fecha de sesión 02:</label>

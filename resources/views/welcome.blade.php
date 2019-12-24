@@ -29,7 +29,7 @@ Si eres colaborador del Instituto de Reinserción Social ingresa aquí
 
             <div class="col-lg-3">
               <label class="form-label-custom" for="password">Contraseña</label>
-               <input type="password" class="form-control form-control-custom bg-transparent" id="password" placeholder="Escribe tu contraseña de nuevo" required>
+               <input type="password" class="form-control form-control-custom bg-transparent" id="password" placeholder="Escribe tu contraseña" required>
                <div class="invalid-feedback">
                 Asegúrate de introducir correctamente tu contraseña
                </div>

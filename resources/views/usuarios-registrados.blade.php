@@ -21,7 +21,7 @@
           </div>
           <div class="col-md-3 mb-3">
             <label class="form-label-custom" for="email">Correo electrónico</label>
-            <input class="form-control form-control-custom" type="email" name="email" value="" placeholder="Correo del usuario" id="email" >
+            <input class="form-control form-control-custom" type="email" name="email" value="" placeholder="Correo electrónico" id="email" >
           </div>
 <!--
           <div class="col-md-2 mb-3">

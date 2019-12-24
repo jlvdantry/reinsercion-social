@@ -98,7 +98,8 @@ class User extends Authenticatable
       Log::debug('app/User.php getSecretariosJuzgado id='.$id);
       $datos = DB::select('select users.*'.
                 ',case when activo=0 then \'Pendiente\''.
-                                               ' when activo=1 then \'Aceptado\''.
+                                               ' when activo=0 then \'Inactivo\''.
+                                               ' when activo=1 then \'Activo\''.
                                                ' when activo=2 then \'Rechazado\''.
                                                ' when activo=3 then \'Eliminado\''.
                                                ' else \'Desconocido\' end desactivo '.
@@ -195,7 +196,8 @@ class User extends Authenticatable
     {
       $datos = DB::select('select users.*'.
                 ',case when activo=0 then \'Pendiente\''.
-                                               ' when activo=1 then \'Aceptado\''.
+                                               ' when activo=0 then \'Inactivo\''.
+                                               ' when activo=1 then \'Activo\''.
                                                ' when activo=2 then \'Rechazado\''.
                                                ' when activo=3 then \'Eliminado\''.
                                                ' else \'Desconocido\' end desactivo '.
