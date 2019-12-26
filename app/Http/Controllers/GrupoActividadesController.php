@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\grupo_actividades;
+use App\actividades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -113,6 +114,10 @@ class GrupoActividadesController extends Controller
      */
     public function destroy($id)
     {
+               $inmu=actividades::getActividadesporgrupo($id);
+               if (count($inmu)>0) {
+                       return response()->json([ 'errors' => ['id' => 'El grupo de actividades tiene actividades relacionadas']],401);
+               } 
                $inmu=grupo_actividades::where('id','=',$id)->get();
                if ($inmu->count()>0) {
                        $inmu[0]->delete();
