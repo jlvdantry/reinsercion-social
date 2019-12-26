@@ -140,6 +140,7 @@ class RegisterController extends Controller
         if (!$request->has('idperfil')) {
                 return response()->json(['errors' => ['idperfil' => 'No se ha seleccionado un perfil al usuario']], 401);
         }
+/*
         if ($request->has('num_telefono')) {
             $dato=User::where('num_telefono','=',$request['num_telefono']);
             if ($dato->count()>0) {
@@ -147,6 +148,7 @@ class RegisterController extends Controller
                 return response()->json(['errors' => ['num_telefono' => 'el número telefonico ya esta registrado']], 401);
             }
         }
+*/
 
         log::debug('entro RegisterController.php paso guard');
         if ($request->has('tercero')) {
