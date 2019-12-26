@@ -110,8 +110,8 @@ class HorariosController extends Controller
                       $datetime1 = new DateTime($request->get($quefechaant));
                       $datetime2 = new DateTime($request->get($quefecha));
                       Log::debug('HorariosControlle fecha1='.print_r($datetime1,true).' fecha2='.print_r($datetime2,true));
-                      if ($datetime2 < $datetime1) {
-                         return response()->json([ 'errors' => [$quefecha => 'La fecha '.$i.' debe ser igual o mayor que la fecha '.($i-1)]],430);
+                      if ($datetime2 <= $datetime1) {
+                         return response()->json([ 'errors' => [$quefecha => 'La fecha '.$i.' debe ser mayor que la fecha '.($i-1)]],430);
                       }
            }
         }
