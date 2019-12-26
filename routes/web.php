@@ -15,6 +15,8 @@ use App\User;
 use App\Perfiles;
 use App\alcaldias;
 use App\Entidades;
+use App\acercamiento;
+use App\comoseentero;
 use App\grupo_actividades;
 use App\Http\Controllers\userController;
 log::debug('routes/web.php inioio URL='.URL::current().' Request::path()='.\Request::path());
@@ -55,11 +57,6 @@ Route::get('/correo_aceptado', function () {
 
 Route::get('/perfil_tercer_acreditado', function () {
     return view('perfil_tercer_acreditado');
-});
-
-Route::get('/notienecuenta', function () {
-    $juzgados = Juzgados::all();
-    return view('notienecuenta')->with('juzgados', $juzgados);
 });
 
 Route::get('/404error', function () {
@@ -103,6 +100,20 @@ Route::group(['middleware' => ['auth:web']], function() {
     Route::get('/registro-exitoso', function () {
          return view('registro-exitoso');
     });
+    Route::get('/beneficiarios', function () {
+         return view('beneficiarios');
+    });
+
+    Route::get('/altabeneficiario', function () {
+        $acercamientos = acercamiento::all();
+        $comoseenteros = comoseentero::all();
+        $data = array (
+            'acercamientos' => $acercamientos,
+            'comoseenteros' => $comoseenteros
+        );
+         return view('altabeneficiario')->with('data', $data);
+    });
+
     Route::get('/gruposactividades', function () {
          return view('grupo-actividades');
     });

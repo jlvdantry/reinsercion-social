@@ -5,3 +5,4 @@ INSERT INTO "public"."menus" (descripcion,componente) VALUES ('Grupos de activid
 INSERT INTO "public"."menus" (descripcion,componente) VALUES ('Catálogos','');
 INSERT INTO "public"."menus" (descripcion,componente) VALUES ('Usuarios','usuarios-registrados');
 INSERT INTO "public"."menus" (descripcion,componente) VALUES ('Expedientes','expedientes');
+INSERT INTO "public"."menus" (descripcion,componente) VALUES ('Beneficiarios','beneficiarios');
