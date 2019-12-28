@@ -47,12 +47,16 @@ select * from infractores where idboleta=(select id from boletas where boleta_re
 --select * from horarios;
 --select * from perfiles_users ;
 --select * from perfiles_menus ;
-delete from users where email='jlvdantry@hotmail.com';
+--delete from users where email='VABL590324HDFSRS06@hotmail.com';
+--select * from users where curp like '%VABL590324HDFSRS06%';
+--select * from users where email like '%VABL590324HDFSRS06%';
 --drop function xcambio_fecha(TIMESTAMP);
+--alter table users drop column tipodealta;
+update users set tipousuario=0 where tipousuario is null;
 fin
 psql -h $DB_HOST -d $DB_DATABASE -U $DB_USERNAME  < $0.sql
 ##psql -U $DB_USERNAME  < $0.sql     ## para crear la bse de datos
-##pg_dump -s -t horarios -h $DB_HOST -U $DB_USERNAME $DB_DATABASE > database/migrations/horarios.dmp
+#pg_dump -s -t users -h $DB_HOST -U $DB_USERNAME $DB_DATABASE > database/migrations/users.dmp
 ##pg_dump -s -t inmuebles -h $DB_HOST -U $DB_USERNAME $DB_DATABASE >> database/migrations/inmuebles.dmp
 ##pg_dump -s -t users -h $DB_HOST -U $DB_USERNAME $DB_DATABASE >> database/migrations/users.dmp
 ##pg_dump -s -h $DB_HOST -U $DB_USERNAME $DB_DATABASE > esquema_pc.sql

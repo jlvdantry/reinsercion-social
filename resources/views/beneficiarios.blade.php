@@ -2,7 +2,7 @@
 @extends('layouts.layout')
 @section('content')
 
-  <main id="usuarios">
+  <main id="beneficiarios">
     <section class="container">
       <div class="d-flex justify-content-between mt-3  align-items-center">
            <div class="Usuarios mb-0">Beneficiarios</div>

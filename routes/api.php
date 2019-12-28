@@ -41,6 +41,11 @@ Route::group(['middleware' => 'auth:web'], function() {
      Route::post('grupo_actividades', 'GrupoActividadesController@store');
      Route::delete('grupo_actividades/{id}', 'GrupoActividadesController@destroy');
 
+     Route::get('beneficiarios', 'BeneficiariosController@index');
+     Route::post('beneficiarios', 'BeneficiariosController@store');
+     Route::delete('beneficiarios/{id}', 'BeneficiariosController@destroy');
+
+
      Route::get('actividades', 'ActividadesController@index');
      Route::get('actividades/0/{id}', 'ActividadesController@indexporgrupo');
      Route::post('actividades', 'ActividadesController@store');

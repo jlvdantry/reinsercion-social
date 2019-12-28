@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Log;
 use App\User;
 use App\Perfiles;
 use App\alcaldias;
-use App\Entidades;
+use App\entidades;
 use App\acercamiento;
 use App\comoseentero;
+use App\estudios;
+use App\etnicas;
+use App\ocupaciones;
+use App\eciviles;
 use App\grupo_actividades;
 use App\Http\Controllers\userController;
 log::debug('routes/web.php inioio URL='.URL::current().' Request::path()='.\Request::path());
@@ -107,9 +111,21 @@ Route::group(['middleware' => ['auth:web']], function() {
     Route::get('/altabeneficiario', function () {
         $acercamientos = acercamiento::all();
         $comoseenteros = comoseentero::all();
+        $estudios = estudios::all();
+        $etnicas = etnicas::all();
+        $ocupaciones = ocupaciones::all();
+        $eciviles = eciviles::all();
+        $entidades = entidades::all();
+        $alcaldias = alcaldias::all();
         $data = array (
             'acercamientos' => $acercamientos,
-            'comoseenteros' => $comoseenteros
+            'comoseenteros' => $comoseenteros,
+            'estudios' => $estudios,
+            'etnicas' => $etnicas,
+            'ocupaciones' => $ocupaciones,
+            'eciviles' => $eciviles,
+            'entidades' => $entidades,
+            'alcaldias' => $alcaldias,
         );
          return view('altabeneficiario')->with('data', $data);
     });

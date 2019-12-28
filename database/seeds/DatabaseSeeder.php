@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Etnicas::class);
         $this->call(Estudios::class);
         $this->call(Entidades::class);
+        $this->call(Ocupaciones::class);
+        $this->call(Eciviles::class);
     }
 }

@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('puesto')->nullable();
             $table->double('num_telefono',10,0)->nullable()->comment('10 digitos');
             $table->string('idperfiltallerista')->nullable()->comment('perfil del tallerista');
-            $table->string('tipousuario')->nullable()->comment('0=usuario interno del sistema,1=beneficiario');
+            $table->string('tipousuario')->nullable()->comment('0=usuario interno del sistema,1=beneficiario')->default(0);
         });
     }
 

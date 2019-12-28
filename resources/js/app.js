@@ -20,3 +20,5 @@ require('./horarios');
 require('./altahorario');
 require('./restaura');
 require('./validation');
+require('./altabeneficiario');
+require('./beneficiarios');
