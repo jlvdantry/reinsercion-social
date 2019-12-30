@@ -24,5 +24,17 @@ class DatabaseSeeder extends Seeder
         $this->call(Entidades::class);
         $this->call(Ocupaciones::class);
         $this->call(Eciviles::class);
+        $this->call(Situacionesjuridicas::class);
+        $this->call(Tiposituaciones::class);
+        $this->call(Centros::class);
+        $this->call(Tipodemandas::class);
+        $this->call(Resultados::class);
+        $this->call(Escolaridades::class);
+        $this->call(Tiposustancias::class);
+        $this->call(Frecuencias::class);
+        $this->call(Tipodeatenciones::class);
+        $this->call(Parentescos::class);
+        $this->call(Tipogrupos::class);
+        $this->call(Frecuencias_rs::class);
     }
 }

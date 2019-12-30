@@ -16,6 +16,7 @@ class CreateTipodeatencionesTable extends Migration
         Schema::create('tipodeatenciones', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('descripcion');
         });
     }
 

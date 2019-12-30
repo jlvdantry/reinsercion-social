@@ -16,6 +16,7 @@ class CreateTiposustanciasTable extends Migration
         Schema::create('tiposustancias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('descripcion');
         });
     }
 

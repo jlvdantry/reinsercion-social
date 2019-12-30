@@ -16,6 +16,7 @@ class CreateEscolaridadesTable extends Migration
         Schema::create('escolaridades', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('descripcion');
         });
     }
 

@@ -16,6 +16,7 @@ class CreateSituacionesjuridicasTable extends Migration
         Schema::create('situacionesjuridicas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('descripcion');
         });
     }
 
