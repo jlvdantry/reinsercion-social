@@ -38,7 +38,7 @@ DE REINSERCIÓN SOCIAL DE LA CIUDAD DE MÉXICO
           </div>
         @endif
       </header>
-  <div class="pleca">
+  <div class="pleca mb-2">
     <div class="container justify-content-between">
       @if (Auth::check())
      <div class="pl-0 d-flex col-lg-12">

@@ -38,6 +38,14 @@ class TiposituacionesController extends Controller
         //
     }
 
+
+    public function indexporsituacion($id)
+    {
+       $datos = tiposituaciones::getTiposituacionesporsituacion($id);
+       return response()->json($datos);
+    }
+
+
     /**
      * Display the specified resource.
      *

@@ -11239,6 +11239,19 @@ button {
   background-color: transparent;
 }
 
+.btn-agregar {
+  cursor: pointer;
+  padding-top: 0.5rem;
+  display: inline;
+  width: 16px;
+  height: 15.9px;
+  background-image: url("../src/img/agregarexpediente.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .custom-control-input:checked ~ .custom-control-label::before {
   border-color: #00b140;
   background-color: #00b140;

@@ -4,25 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 log::debug('routes/api.php URL='.URL::current().' Request::path()='.\Request::path());
 
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-/*
-     Route::post('register', function() {
-                      log::debug('routes/api.php detecto reister');
-                      return redirect()->action('Auth/RegisterController@register');
-                        });
-*/
-
 Route::post('register','Auth\RegisterController@register');
 
 Route::post('login', 'Auth\LoginController@login');
@@ -42,9 +23,13 @@ Route::group(['middleware' => 'auth:web'], function() {
      Route::delete('grupo_actividades/{id}', 'GrupoActividadesController@destroy');
 
      Route::get('beneficiarios', 'BeneficiariosController@index');
+     Route::get('beneficiarios/{id}', 'BeneficiariosController@show');
+     Route::put('beneficiarios/{id}', 'BeneficiariosController@update');
      Route::post('beneficiarios', 'BeneficiariosController@store');
      Route::delete('beneficiarios/{id}', 'BeneficiariosController@destroy');
 
+
+     Route::get('tiposituaciones/0/{id}', 'TiposituacionesController@indexporsituacion');
 
      Route::get('actividades', 'ActividadesController@index');
      Route::get('actividades/0/{id}', 'ActividadesController@indexporgrupo');

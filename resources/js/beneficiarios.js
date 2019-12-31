@@ -14,14 +14,14 @@
                             success: function(data){
                             if (data.length>0) {
                                     var dis = { id : { header : 'id', 'class' : 'd-none' }
-                                               , nombrecompleto : { header : 'Nombres', 'class' : '' }
-                                               , genero :  { header : 'Genero', 'class' : '' }
-                                               , edad : { header : 'Edad', 'class' : '' }
-                                               , created_at : { header : 'Fecha de registro', 'class' : '' }
-                                               , curp : { header : 'CURP', 'class' : '' }
-                                               , desactivo : { header : 'Nuevo expediente','class' :  'estatususuario(campos[y])' }
-                                               , ver : { header : 'Ver', 'boton' : true ,'classb' : 'btn-ver', 'funcion' : 'ver3' }
-                                             }
+                                     , nombrecompleto : { header : 'Nombres', 'class' : '' }
+                                     , genero :  { header : 'Genero', 'class' : '' }
+                                     , edad : { header : 'Edad', 'class' : '' }
+                                     , created_at : { header : 'Fecha de registro', 'class' : '' }
+                                     , curp : { header : 'CURP', 'class' : '' }
+                                     , desactivo1 : { header : 'Nuevo  expediente','boton' : true ,'classb' : 'btn-agregar', 'funcion' :  'altaexpediente' }
+                                     , ver :       { header : 'Ver', 'boton' : true ,'classb' : 'btn-editar', 'funcion' : 'editar_b' }
+                                   }
                                   armadatagrid(data,dis,'dg_usuarios',true);
                             } else {
                                   crearMensaje(true,"Atención", ' No se encontraron registros');
@@ -39,3 +39,11 @@
              });
         $("#buscar").trigger("click");
      }
+     window.altaexpediente = function(x) {
+            location.href = base_url+"/expedientes/"+x.dataset.id;
+     }
+     window.editar_b = function(x) {
+            location.href = base_url+"/beneficiarios/"+x.dataset.id;
+     }
+
+

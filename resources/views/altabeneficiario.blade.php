@@ -3,9 +3,9 @@
 
   <main id="altabeneficiario" >
     <section id="alcaldia-container" class="container">
-      <div class="Usuarios mb-0">Alta de beneficiario</div>
+      <div class="Usuarios mb-0" id="titulo" >Alta de beneficiario</div>
       <p>Los campos marcados con asterisco son obligatorios</p>
-      <form class="needs-validation-alcaldia seccion" novalidate>
+      <form class="needs-validation-alcaldia seccion" id="f_altabeneficiario" data-id="" novalidate>
         <div class="row">
           <div class="col-md-12 mb-3" id="nom">
            <legend class="form-label-custom">Tipo de alta:</legend>
@@ -63,22 +63,22 @@
         <div class="Lugar-de-imparticin mt-3 mb-0">Datos generales</div>
         <div class="row">
           <div class="col-md-4 mb-3" id="nom">
-            <label class="form-label-custom" for="alc-nombres" >*Nombre(s):</label>
-            <input autofocus type="text" class="form-control form-control-custom names" id="alc-nombres" maxlength="50" placeholder="Escribe el nombre" required>
+            <label class="form-label-custom" for="nombres" >*Nombre(s):</label>
+            <input autofocus type="text" class="form-control form-control-custom names" id="nombres" maxlength="50" placeholder="Escribe el nombre" required>
             <div class="invalid-feedback">
               Asegúrate de introducir la información correctamente
             </div>
           </div>
           <div class="col-md-4 mb-3" id="apa">
-            <label class="form-label-custom" for="alc-ape_pat">*Primer apellido:</label>
-            <input type="text" class="form-control form-control-custom names" id="alc-ape_pat" maxlength="30" placeholder="Escribe el primer apellido " required>
+            <label class="form-label-custom" for="ape_pat">*Primer apellido:</label>
+            <input type="text" class="form-control form-control-custom names" id="ape_pat" maxlength="30" placeholder="Escribe el primer apellido " required>
             <div class="invalid-feedback">
               Asegúrate de introducir la información correctamente
             </div>
           </div>
           <div class="col-md-4 mb-3" id="ama">
-            <label class="form-label-custom" for="alc-ape_mat">Segundo apellido:</label>
-            <input type="text" class="form-control form-control-custom names" id="alc-ape_mat" maxlength="30" placeholder="Escribe el segundo apellido">
+            <label class="form-label-custom" for="ape_mat">Segundo apellido:</label>
+            <input type="text" class="form-control form-control-custom names" id="ape_mat" maxlength="30" placeholder="Escribe el segundo apellido">
             <div class="invalid-feedback">
               Asegúrate de introducir la información correctamente
             </div>
@@ -228,7 +228,7 @@
 
                 <div class="row">
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="calle_b">Calle*:</label>
+                    <label class="form-label-custom" for="calle_b">Calle:</label>
                     <input autofocus type="text" name="calle_b" id="calle_b" class="form-control form-control-custom street-names" maxlength="30" value="" placeholder="Escribe la calle" autofocus >
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
@@ -236,7 +236,7 @@
                   </div>
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="exterior_b">Numero exterior*:</label>
+                    <label class="form-label-custom" for="exterior_b">Numero exterior:</label>
                     <input type="text" name="exterior_b" id="exterior_b" class="form-control form-control-custom street-names" maxlength="10" value="" placeholder="00" >
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
@@ -254,7 +254,7 @@
                 <div class="row">
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="cp_b">Código postal*:</label>
+                    <label class="form-label-custom" for="cp_b">Código postal:</label>
                     <input type="text" name="cp_b" id="cp_b" class="form-control form-control-custom numbers" maxlength="5" value="" placeholder="00000" pattern="^[0-9]{4,5}$" >
                     <div class="invalid-feedback">
                       Ingresa los cuatro o cinco dígitos de tu código postal
@@ -262,7 +262,7 @@
                   </div>
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="colonia_b">Colonia*:</label>
+                    <label class="form-label-custom" for="colonia_b">Colonia:</label>
                     <input type="text" name="colonia_b" id="colonia_b" class="form-control form-control-custom street-names" maxlength="30" value="" placeholder="Escribe la colonia" >
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
@@ -304,15 +304,15 @@
             </div>
           </div>
           <div class="col-md-4 mb-3" id="apa">
-            <label class="form-label-custom " for="num_telefono">*Télefono celular:</label>
+            <label class="form-label-custom " for="num_telefono">Télefono celular:</label>
             <input type="text" class="form-control form-control-custom numer" id="num_telefono" maxlength="10" placeholder="55 5555 5555" >
             <div class="invalid-feedback">
               Asegúrate de introducir la información correctamente
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <label class="form-label-custom" for="alc-email">*Email:</label>
-            <input type="email" class="form-control form-control-custom" id="alc-email" placeholder="correo@dominio.com" >
+            <label class="form-label-custom" for="email">Email:</label>
+            <input type="email" class="form-control form-control-custom" id="email" placeholder="correo@dominio.com" >
             <div class="invalid-feedback">
               Asegúrate de introducir correctamente tu correo electrónico
             </div>
@@ -346,7 +346,7 @@
         </div>
                 <div class="row">
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="calle_c">Calle*:</label>
+                    <label class="form-label-custom" for="calle_c">Calle:</label>
                     <input autofocus type="text" name="calle_c" id="calle_c" class="form-control form-control-custom street-names" maxlength="30" value="" placeholder="Escribe la calle" autofocus >
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
@@ -354,7 +354,7 @@
                   </div>
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="exterior_c">Numero exterior*:</label>
+                    <label class="form-label-custom" for="exterior_c">Numero exterior:</label>
                     <input type="text" name="exterior_c" id="exterior_c" class="form-control form-control-custom street-names" maxlength="10" value="" placeholder="00">
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
@@ -372,7 +372,7 @@
                 <div class="row">
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="cp_c">Código postal*:</label>
+                    <label class="form-label-custom" for="cp_c">Código postal:</label>
                     <input type="text" name="cp_c" id="cp_c" class="form-control form-control-custom numbers" maxlength="5" value="" placeholder="00000" pattern="^[0-9]{4,5}$" >
                     <div class="invalid-feedback">
                       Ingresa los cuatro o cinco dígitos de tu código postal
@@ -380,14 +380,14 @@
                   </div>
 
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="colonia_c">Colonia*:</label>
+                    <label class="form-label-custom" for="colonia_c">Colonia:</label>
                     <input type="text" name="colonia_c" id="colonia_c" class="form-control form-control-custom street-names" maxlength="30" value="" placeholder="Escribe la colonia" >
                     <div class="invalid-feedback">
                       Asegúrate de introducir la información correctamente
                     </div>
                   </div>
                   <div class="col-md-4 mb-3">
-                    <label class="form-label-custom" for="id_alcaldia_c">Alcaldía*:</label>
+                    <label class="form-label-custom" for="id_alcaldia_c">Alcaldía:</label>
                     <select class="form-control form-control-custom" id="id_alcaldia_c" name="id_alcaldia_c" >
                       <option disabled value="" selected hidden>Selecciona una</option>
                       @foreach ($data['alcaldias'] as $alcaldia)

@@ -22,3 +22,4 @@ require('./restaura');
 require('./validation');
 require('./altabeneficiario');
 require('./beneficiarios');
+require('./expedientes');

@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Log;
 use App\User;
 use App\Perfiles;
 use App\alcaldias;
+use App\acercamientos;
 use App\entidades;
-use App\acercamiento;
+use App\situacionesjuridicas;
+use App\centros;
+use App\tiposituaciones;
 use App\comoseentero;
 use App\estudios;
 use App\etnicas;
@@ -109,7 +112,7 @@ Route::group(['middleware' => ['auth:web']], function() {
     });
 
     Route::get('/altabeneficiario', function () {
-        $acercamientos = acercamiento::all();
+        $acercamientos = acercamientos::all();
         $comoseenteros = comoseentero::all();
         $estudios = estudios::all();
         $etnicas = etnicas::all();
@@ -130,6 +133,29 @@ Route::group(['middleware' => ['auth:web']], function() {
          return view('altabeneficiario')->with('data', $data);
     });
 
+    Route::get('beneficiarios/{id}', function () {
+        $acercamientos = acercamientos::all();
+        $comoseenteros = comoseentero::all();
+        $estudios = estudios::all();
+        $etnicas = etnicas::all();
+        $ocupaciones = ocupaciones::all();
+        $eciviles = eciviles::all();
+        $entidades = entidades::all();
+        $alcaldias = alcaldias::all();
+        $data = array (
+            'acercamientos' => $acercamientos,
+            'comoseenteros' => $comoseenteros,
+            'estudios' => $estudios,
+            'etnicas' => $etnicas,
+            'ocupaciones' => $ocupaciones,
+            'eciviles' => $eciviles,
+            'entidades' => $entidades,
+            'alcaldias' => $alcaldias,
+        );
+         return view('altabeneficiario')->with('data', $data);
+    });
+
+
     Route::get('/gruposactividades', function () {
          return view('grupo-actividades');
     });
@@ -147,9 +173,6 @@ Route::group(['middleware' => ['auth:web']], function() {
          return view('registro-inmueble-exitoso')->with('inmueble', $inmueble[0]);
     });
 
-    Route::get('/expedientes', function () {
-        return view('expedientes');
-    });
     Route::get('/detalle-tercer-acreditado-tercero/{id}', 'userController@detalleterceracreditadotercero');
     Route::get('/detalle-usuario/{id}', 'userController@detalleusuario');
 
@@ -176,36 +199,20 @@ Route::group(['middleware' => ['auth:web']], function() {
 
     Route::get('/inmuebles-registrados/{rfc}', 'inmueblesController@inmueblesByEstablecimientos');
 
-
-    Route::get('crearexpediente/',  function () {
+    Route::get('expedientes/{id}',  function () {
            $alcaldias = Alcaldias::all();
            $entidades = Entidades::all();
-           $jueces = App\User::getJuecesJuzgado(Auth::user()->idjuzgado);
-           $secretarios = App\User::getSecretariosJuzgado(Auth::user()->idjuzgado);
-           $infracciones = Infracciones::getConcatalogos();
+           $situacionesjuridicas = Situacionesjuridicas::all();
+           $tiposituaciones = tiposituaciones::all();
+           $centros = centros::all();
            $data = array (
               'alcaldias' => $alcaldias,
               'entidades' => $entidades,
-              'infracciones' => $infracciones,
-              'jueces' => $jueces,
-              'secretarios' => $secretarios
+              'situacionesjuridicas' => $situacionesjuridicas,
+              'tiposituaciones' => $tiposituaciones,
+              'centros' => $centros
            );
-           return view('crearexpediente')->with('data', $data);
-    });
-    Route::get('crearexpediente/{id}',  function () {
-           $alcaldias = Alcaldias::all();
-           $entidades = Entidades::all();
-           $infracciones = Infracciones::getConcatalogos();
-           $jueces = App\User::getJuecesJuzgado(Auth::user()->idjuzgado);
-           $secretarios = App\User::getSecretariosJuzgado(Auth::user()->idjuzgado);
-           $data = array (
-              'alcaldias' => $alcaldias,
-              'entidades' => $entidades,
-              'infracciones' => $infracciones,
-              'jueces' => $jueces,
-              'secretarios' => $secretarios
-           );
-              return view('crearexpediente')->with('data', $data);
+              return view('expedientes')->with('data', $data);
     });
 
     //Editar perfil

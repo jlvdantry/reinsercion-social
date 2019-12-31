@@ -284,6 +284,19 @@ img{
   }
 }
 
+.btn-agregar{
+  cursor: pointer;
+  padding-top: .5rem;
+  display: inline;
+  width: 16px;
+  height: 15.9px;
+  background-image: url("../src/img/agregarexpediente.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  object-fit: contain;
+}
+
+
 .custom-control-input:checked ~ .custom-control-label::before{
     border-color: $verde-primario;
     background-color: $verde-primario;

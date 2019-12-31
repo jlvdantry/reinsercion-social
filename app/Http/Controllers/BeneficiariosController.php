@@ -91,19 +91,21 @@ class BeneficiariosController extends Controller
   public function show($id)
   {
       $datos = User::select('*',DB::Raw(
-                'case when activo=0 then \'Pendiente\''.
-                                                              ' when activo=0 then \'Inactivo\''.
-                                                              ' when activo=1 then \'Activo\''.
-                                                              ' when activo=2 then \'Rechazado\''.
-                                                              ' when activo=3 then \'Eliminado\''.
-                                                              ' else \'Desconocido\' end desactivo '.
-                                                              ',case when tipopersona=\'F\' then \'Fisica\''.
-                                                              ' when tipopersona=\'M\' then \'Moral\''.
-                                                              ' else \'Desconocido\' end destipopersona '.
-                                     ', (trim(coalesce(nombres,\'\')) || \' \' || trim(coalesce(ape_pat,\'\')) || \' \' || trim(coalesce(ape_mat,\'\'))) nombrecompleto '.
-                                     ',(select descripcion from perfiles pe where pe.id in (select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) desperfil '
+                'case when activo=0 then \'Inactivo\''.
+                                               ' when activo=1 then \'Activo\''.
+                                               ' when activo=2 then \'Rechazado\''.
+                                               ' when activo=3 then \'Eliminado\''.
+                                               ' else \'Desconocido\' end desactivo '.
+                                  ', case when sexo=\'M\' then \'Masculino\' else \'Femenino\' end genero'.
+                                  ',coalesce(date_part(\'year\',age(nacimiento)),\'0\') edad'.
+                                  ', (trim(coalesce(nombres,\'\')) || \' \' || trim(coalesce(ape_pat,\'\')) || \' \' || trim(coalesce(ape_mat,\'\'))) nombrecompleto '.
+                                  ',coalesce((select descripcion from perfiles pe where pe.id in '.
+                                          '(select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1),\'\') desperfil '.
+                                  ',(select id from perfiles pe where pe.id in '.
+                                          '(select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) idperfil '
                                ))->where('id','=',$id)->get();
-    return response()->json($datos);
+
+      return response()->json($datos);
   }
 
   public function detalleusuario($id)
@@ -116,8 +118,8 @@ class BeneficiariosController extends Controller
                 ' when activo=2 then \'Rechazado\''.
                 ' when activo=3 then \'Eliminado\''.
                 ' else \'Desconocido\' end desactivo '.
-               ', (trim(coalesce(nombres,\'\')) || \' \' || trim(coalesce(ape_pat,\'\')) || \' \' || trim(coalesce(ape_mat,\'\'))) nombrecompleto '.
-                ',(select descripcion from perfiles pe where pe.id in (select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) desperfil '.
+           ', (trim(coalesce(nombres,\'\')) || \' \' || trim(coalesce(ape_pat,\'\')) || \' \' || trim(coalesce(ape_mat,\'\'))) nombrecompleto '.
+           ',(select descripcion from perfiles pe where pe.id in (select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) desperfil '.
                 ',(select id from perfiles pe where pe.id in (select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) idperfil '
                 ))->where('id','=',$id)->get();
            $data = array (
@@ -136,14 +138,14 @@ class BeneficiariosController extends Controller
                                                               ' when activo=2 then \'Rechazado\''.
                                                               ' when activo=3 then \'Eliminado\''.
                                                               ' else \'Desconocido\' end desactivo '.
-                                     ', (trim(coalesce(nombres,\'\')) || \' \' || trim(coalesce(ape_pat,\'\')) || \' \' || trim(coalesce(ape_mat,\'\'))) nombrecompleto '.
-                                     ',case '.
-                                                              ' when id_nivel=1 then \'Capacitación de brigadas de PC\''.
-                                                              ' when id_nivel=2 then \'Elaboración de programas internos para establecimientos o inmuebles de mediano riesgo\''.
-                                                              ' when id_nivel=3 then \'Elaboración de programas internos de PC para establecimientos o inmuebles de alto riesgo\''.
-                                                              ' when id_nivel=4 then \'Estudios de riesgo de vulnerabilidad\''.
-                                                              ' else \'Desconocido\' end desnivel '.
-                                     ',(select descripcion from perfiles pe where pe.id in (select idperfil from perfiles_users where idusuario=users.id) limit 1 order by id desc) desperfil '
+                                  ', (trim(coalesce(nombres,\'\')) || \' \' || trim(coalesce(ape_pat,\'\')) || \' \' || trim(coalesce(ape_mat,\'\'))) nombrecompleto '.
+                                  ',case '.
+                                  ' when id_nivel=1 then \'Capacitación de brigadas de PC\''.
+                                  ' when id_nivel=2 then \'Elaboración de programas internos para establecimientos o inmuebles de mediano riesgo\''.
+                                  ' when id_nivel=3 then \'Elaboración de programas internos de PC para establecimientos o inmuebles de alto riesgo\''.
+                                  ' when id_nivel=4 then \'Estudios de riesgo de vulnerabilidad\''.
+                                  ' else \'Desconocido\' end desnivel '.
+            ',(select descripcion from perfiles pe where pe.id in (select idperfil from perfiles_users where idusuario=users.id) limit 1 order by id desc) desperfil '
                                ))->where('id','=',$id)->get();
     return  view('secretaria.detalle-terceros-acreditados-tercero')->with('user',$datos[0]);
   }
@@ -229,136 +231,19 @@ class BeneficiariosController extends Controller
   public function update(Request $request,$id)
   {
             $data=array();
-            //Log::debug('userControler update queactualizo='.print_r($request->all(),true));
-            if (strpos($id,'@')!==false) {
-               $dato = User::where('email','=',$id)->get();
-               if ($dato->count()>0) {
-                  $upddata['cambiocontra']=$dato[0]->generateToken();
-                  $datox = User::where('email','=',$id)->update($upddata);
-                  $dato[0]['cambiocontra']=$upddata['cambiocontra'];
-                  Mail::to($dato[0]->email)->send(new OlvidoContrasena($dato[0]));
-                  return response()->json('Se envio email',200);
-               } else {
-                  return response()->json('El email no esta registrado',480);
-               }
-            }
-            if (array_key_exists('activo',$request->all())) {
-                $data['activo']=$request->activo;
-                $data['idjuzgado']=$request->idjuzgado;
-                $cp = new User;
-                $cp->cambiaperfil($id,$request->idperfil); 
-                $dato = User::getconCatalogosbyID($id);
-                $datox = User::where('id','=',$id)->update($data);
-                if ($datox==0) {
-                  return response()->json('No actualizo el usuario',412);
-                } else {
-                  if ($request->activo==1) {
-                     Mail::to($dato->email)->send(new UserAceptado($dato));
-                  }
-                  if ($request->activo==2) {
-                      Mail::to($dato->email)->send(new UserRechazado($dato, $request->rechazo)); 
-                  }
-                  return response()->json('El usuario se actualizo',200);
-                }
-            }
+       $data=$request->all();
+       $dato = User::where([['curp','=',$data['curp']],['id','<>',$id]])->get();
+       Log::debug('BeneficiariosController '.print_r($dato,true));
+       if ($dato->count()>0) {
+            return response()->json(['errors' => ['curp' => 'El curp ya esta registrado']],480);
+       }
 
-            if (array_key_exists('desactivo',$request)) {
-               switch ($request->queactualizo['desactivo']) {
-                   case 'Pendiente de activar':
-                       $data['activo']=0;
-                       break;
-                   case 'Activo':
-                       $data['activo']=1;
-                       break;
-                   case 'Bloqueado':
-                       $data['activo']=2;
-                       break;
-                   default:
-                       $data['activo']=3;
-               }
-               $dato = User::where('id','=',$id)->update($data);
-               if ($dato==0) {
-                  return response()->json('No actualizo el usuario',412);
-               } else {
-                  return response()->json('El usuario se actualizo',200);
-               }
-            }
-            if (array_key_exists('perfiles',$request)) {
-               switch ($request->queactualizo['perfiles']) {
-                   case 'Sin perfil':
-                       $data['idperfil']=0;
-                       break;
-                   case 'Administrador':
-                       $data['idperfil']=1;
-                       break;
-                   case 'Operador':
-                       $data['idperfil']=2;
-                       break;
-                   default:
-                       $data['idperfil']=0;
-               }
-               $dato = PerfilesUsers::where('idusuario','=',$id)->delete();
-               $dato = new PerfilesUsers([
-                         'idperfil' => $data['idperfil'],
-                         'idusuario' => $id
-                         ]);
-               $dato->save();
-               return response()->json($dato,200);
-            }
-            if ($request->has('nombres')) {
-                $data['nombres']=$request->nombres;
-            }
-            if ($request->has('ape_pat')) {
-                $data['ape_pat']=$request->ape_pat;
-            }
-            if ($request->has('ape_mat')) {
-                $data['ape_mat']=$request->ape_pat;
-            }
-            if ($request->has('rfc')) {
-                $data['rfc']=$request->rfc;
-            }
-            if ($request->has('sgirpc')) {
-                $data['sgirpc']=$request->sgirpc;
-            }
-            if ($request->has('stps')) {
-                $data['stps']=$request->stps;
-            }
-            if ($request->has('vigencia')) {
-                $data['vigencia']=$request->vigencia;
-            }
-            if ($request->has('cb')) {
-                $data['cb']=$request->cb;
-            }
-            if ($request->has('epmr')) {
-                $data['epmr']=$request->epmr;
-            }
-            if ($request->has('erv')) {
-                $data['erv']=$request->erv;
-            }
-            if ($request->has('rpar')) {
-                $data['rpar']=$request->rpar;
-            }
-            if ($request->has('calle')) {
-                $data['calle']=$request->calle;
-            }
-            if ($request->has('exterior')) {
-                $data['exterior']=$request->exterior;
-            }
-            if ($request->has('interior')) {
-                $data['interior']=$request->interior;
-            }
-            if ($request->has('colonia')) {
-                $data['colonia']=$request->colonia;
-            }
-            if ($request->has('id_alcaldia')) {
-                $data['id_alcaldia']=$request->id_alcaldia;
-            }
-            if ($request->has('cp')) {
-                $data['cp']=$request->cp;
-            }
-            if ($request->has('num_telefono')) {
-                $data['num_telefono']=$request->cp;
-            }
+       $dato = User::where([['email','=',$data['email']],['id','<>',$id]])->get();
+       if ($dato->count()>0) {
+            return response()->json(['errors' => ['email' => 'El email ya esta registrado']],480);
+       }
+
+
             if (count($data)>0) {
                 $datox = User::where('id','=',$id)->update($data);
                 if ($datox==0) {

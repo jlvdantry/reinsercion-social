@@ -1,12 +1,42 @@
-if ($('main')[0].id=='altabeneficiario') {
+if ($('main')[0].id=='expedientes') {
         $("#nombres").keyup(function(e){ e.currentTarget.value=e.currentTarget.value.toLocaleUpperCase(); })
         $("#ape_pat").keyup(function(e){ e.currentTarget.value=e.currentTarget.value.toLocaleUpperCase(); })
         $("#ape_mat").keyup(function(e){ e.currentTarget.value=e.currentTarget.value.toLocaleUpperCase(); })
         $("#alias").keyup(function(e){ e.currentTarget.value=e.currentTarget.value.toLocaleUpperCase(); })
         $("#curp").keyup(function(e){ e.currentTarget.value=e.currentTarget.value.toLocaleUpperCase(); })
-        $("#pes").focus();
+        $("#carnet").focus();
         $(".boton-regresar").removeClass('d-none');
         $("#boton-regresar").attr("href", mipath()+"beneficiarios");
+        $('div[name="opciones"]').on('click', function(e) {
+              $('div[name="tabi"]').addClass('d-none');
+              $('div[name="opciones"]').removeClass('tst1');
+              $("#"+e.currentTarget.dataset.href).removeClass('d-none');
+              $('#'+e.target.id).addClass('tst1');
+        });
+
+        $("#idsituacionjuridica").change(function(e){
+          $.ajax({
+	      type: 'get',
+	      url: mipath()+'api/tiposituaciones/0/'+$('#idsituacionjuridica')[0].value,
+	      headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+	      data: '',
+	      success: function(data){
+		  $('#idtipodesituacion').children('option').remove();
+		  for(var x in data) {
+		     $('<option>').val(data[x].id).text(data[x].descripcion).appendTo('#idtipodesituacion');
+		  }
+	      },
+	      error: function( jqXhr, textStatus, errorThrown ){
+		var errores=jqXhr.responseJSON.errors;
+		for (var x in errores) {
+		  crearMensaje(true,"Error ", errores[x]);
+		  break;
+		}
+	      }
+         });
+       });
+
+
         if (window.location.href.split('/').length==6) {    /*  muestra una boleta */
            if (window.location.href.split('/')[5]!='') {
               ID=window.location.href.split('/')[5];
