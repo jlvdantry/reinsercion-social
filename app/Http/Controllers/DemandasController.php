@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\demandas;
+use App\tipodemandas;
 use Illuminate\Http\Request;
 
 class DemandasController extends Controller
@@ -78,8 +79,16 @@ class DemandasController extends Controller
      * @param  \App\demandas  $demandas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(demandas $demandas)
+    public function destroy($id)
     {
-        //
+               $inmu=demandas::where('id','=',$id)->get();
+               if ($inmu->count()>0) {
+                       $inmu[0]->delete();
+                       $td = new tipodemandas();
+                       $falta=$td->gettipodemandasfaltantes($inmu[0]["idexpediente"]);
+                       return response()->json([ 'data' => ['id' => 'La demanda fue borrada'], 'tipodemandas' => $falta ],200);
+               } else {
+                   return response()->json([ 'data' => ['id' => 'el ID de expediente no existe']],401);
+               }
     }
 }

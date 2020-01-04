@@ -52,12 +52,13 @@ tr{
   color: $orange!important;
 }
 
-.tabla-inmuebles, .simulacros, .comites {
+.tabla-inmuebles, .demandas, .comites {
   width: 100%;
   background-color: $gray-05;
   font-size: $fs-14;
+  padding: 1rem;
 
-  th{
+  thead{
     color: $gray-03;
     font-size: $fs-14;
     padding: .625rem;

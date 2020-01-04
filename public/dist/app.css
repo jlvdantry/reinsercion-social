@@ -10707,13 +10707,13 @@ a:hover {
 }
 
 .Campos-obligatorios {
-  height: 12px;
+  height: 18px;
   font-family: Metropolis;
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.2;
+  line-height: 1.38;
   letter-spacing: normal;
   color: #5d5d5d;
 }
@@ -10784,6 +10784,7 @@ a:hover {
   line-height: normal;
   letter-spacing: normal;
   color: #5d5d5d;
+  cursor: pointer;
 }
 
 .-Datos-Generales- .tst1 {
@@ -10927,13 +10928,37 @@ a:hover {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--pine-green);
+  color: #0f4c42;
 }
 
 .Rectangle {
   width: 4px;
   height: 52px;
   background-color: #009288;
+}
+
+.nombredelbeneficiario {
+  height: 32px;
+  font-family: Metropolis;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: normal;
+  color: #00b140;
+}
+
+.incisos {
+  height: 18px;
+  font-family: Metropolis;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  color: #5d5d5d;
 }
 
 .footer {
@@ -11148,7 +11173,7 @@ button {
   transition: height 0.3s ease-in-out, background-color 0.3s;
 }
 .btn-registro:hover, .btn-registro.active {
-  background-color: #00b140;
+  background-color: #5d5d5d;
   color: #ffffff;
   text-decoration: none;
   -webkit-transition: height 0.3s ease-in-out, background-color 0.3s;
@@ -11362,23 +11387,24 @@ button {
   color: #fa6400 !important;
 }
 
-.tabla-inmuebles, .simulacros, .comites {
+.tabla-inmuebles, .demandas, .comites {
   width: 100%;
   background-color: #f8f8f8;
   font-size: 0.9rem;
+  padding: 1rem;
 }
-.tabla-inmuebles th, .simulacros th, .comites th {
+.tabla-inmuebles thead, .demandas thead, .comites thead {
   color: #5d5d5d;
   font-size: 0.9rem;
   padding: 0.625rem;
   text-align: center;
   font-weight: 600;
 }
-.tabla-inmuebles tr, .simulacros tr, .comites tr {
+.tabla-inmuebles tr, .demandas tr, .comites tr {
   text-align: center;
   border-bottom: solid 0.03125rem #c1c7d0;
 }
-.tabla-inmuebles tr td, .simulacros tr td, .comites tr td {
+.tabla-inmuebles tr td, .demandas tr td, .comites tr td {
   line-height: 1.2rem;
   color: #5d5d5d;
   padding: 1rem;

@@ -223,7 +223,8 @@ class BeneficiariosController extends Controller
                                   ',coalesce((select descripcion from perfiles pe where pe.id in '.
                                           '(select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1),\'\') desperfil '.
                                   ',(select id from perfiles pe where pe.id in '.
-                                          '(select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) idperfil '
+                                          '(select idperfil from perfiles_users where idusuario=users.id) order by id desc limit 1) idperfil '.
+                                 ',(select count(*) from expedientes where idbeneficiario=users.id) expedientes '
                                ))->where($filtro)->get();
       return response()->json($datos);
   }

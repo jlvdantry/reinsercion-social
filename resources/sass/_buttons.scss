@@ -170,9 +170,9 @@ p{
   align-items: center;
   width: 100%;
   cursor: pointer;
-  background-color: $gray-04;
+  background-color: $very-light-pink-two;
   min-height: 2.5rem;
-  color: $gray-03;
+  color: $brownish-grey;
   font-size: $fs-14;
   font-weight: 600;
   text-transform: uppercase;
@@ -184,7 +184,7 @@ p{
 
     &:hover,
     &.active{
-      background-color: $verde-primario;
+      background-color: $brownish-grey;
       color: $white;
       text-decoration: none;
       transition: height 0.3s ease-in-out, background-color 0.3s;

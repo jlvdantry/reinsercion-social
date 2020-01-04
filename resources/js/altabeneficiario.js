@@ -7,7 +7,7 @@ if ($('main')[0].id=='altabeneficiario') {
         $("#pes").focus();
         $(".boton-regresar").removeClass('d-none');
         $("#boton-regresar").attr("href", mipath()+"beneficiarios");
-        if (window.location.href.split('/').length==6) {    /*  muestra una boleta */
+        if (window.location.href.split('/').length==6) {    /*  muestra una beneficiario */
            if (window.location.href.split('/')[5]!='') {
               ID=window.location.href.split('/')[5];
               $("#titulo").text("Cambio de beneficiario");

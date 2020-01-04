@@ -36,26 +36,20 @@ Route::group(['middleware' => 'auth:web'], function() {
      Route::post('actividades', 'ActividadesController@store');
      Route::delete('actividades/{id}', 'ActividadesController@destroy');
 
+     Route::delete('demandas/{id}', 'DemandasController@destroy');
+
      Route::get('horarios', 'HorariosController@index');
      Route::post('horarios', 'HorariosController@store');
      Route::delete('horarios/{id}', 'HorariosController@destroy');
 
 
      Route::get('users/estadistica', 'userController@estadistica');
-     Route::post('boletas', 'inmueblesController@store');
-     Route::post('boletas/{id}', 'boletasController@update');
-     Route::put('boletas/{id}', 'boletasController@update');
-     Route::get('boletas/{id}', 'boletasController@show');
+     Route::post('expedientes/{id}', 'ExpedientesController@update');
+     Route::put('expedientes/{id}', 'ExpedientesController@update');
+     Route::get('expedientes/0/{idusuario}', 'ExpedientesController@indexporusuario');
+     Route::get('expedientes/{id}', 'ExpedientesController@show');
+     Route::delete('expedientes/{id}', 'ExpedientesController@destroy');
 
-     Route::put('infractores/{boleta}', 'infractoresController@store');
-     Route::put('infractores/{boleta}/{id}', 'infractoresController@update');
-     Route::post('infractores/{boleta}/{id}', 'infractoresController@update');
-     Route::delete('infractores/{id}', 'infractoresController@destroy');
-
-     Route::get('infractores/{boleta}', 'infractoresController@index');
-     Route::get('infractores/{boleta}/{id}', 'infractoresController@show');
-
-     Route::get('boletas', 'boletasController@index');
-     Route::put('boletas/', 'boletasController@store');
-     //Route::post('/sube_archivos', 'fileController@upload');
+     Route::get('expedientes', 'ExpedientesController@index');
+     Route::put('expedientes/', 'ExpedientesController@store');
 });

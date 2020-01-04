@@ -1,41 +1,4 @@
 
-     window.jsonf = {
-            'filas' : {
-                  row_1 : { "div1" : {
-                                    'fecha'           : { 'label' : 'Fecha*', 'class' : 'form-label-custom', 'classv' : 'font-weight-bold', 'type' : 'label' },
-                                    'class'           : 'col-md-6 mb-3'
-                                     },
-                            "div2" : {
-                                    'destiposimulacro'   : { 'label' : 'Tipo*', 'class' : 'form-label-custom', 'classv' : 'font-weight-bold',  'type' : 'label' },
-                                    'class'           : 'col-md-6 mb-3'
-                                     },
-                            'class' : 'row'
-                        },
-                  row_2 : {
-                            "div1" : {
-                                     'hipotesis'     : { 'label' : 'Hipotesis*', 'class' : 'form-label-custom', 'classv' : 'font-weight-bold', 'type' : 'label' },
-                                     'class'         : 'col-lg-12 '
-                                     },
-                            'class' : 'row'
-                        },
-                  row_3 : {
-                            "div1" : {
-                                     'filesystem'  : { 'label' : 'Constancia de simulacros* (PDF)', 'class' : 'form-label-custom', 'classv' : "btn-descargar", 'type' : 'label' , 'stype':'file'}, 
-                                     'class'         : 'col-md-6 mb-3'
-                                     },
-                            "div2" : {
-                                    'BajaSimulacro'   : { 'label' : 'Eliminar', 'class' : 'form-label-custom','classv' : 'btn-eliminar', 'funcion' : 'baja_simulacro',  'type' : 'label' , 'stype':'button'},
-                                    'class'           : 'col-md-6 mb-3'
-                                     },
-
-                            'class' : 'row'
-                        },
-                      },
-             'titulo' : { 'label' : 'Simulacro', 'class' : "my-0" , 'type' : 'h2' },
-             'pie'    : { 'label' : 'Simulacro', 'class' : "my-0" , 'type' : 'h2' },
-             'class'  : 'simulacros',
-             'id'     : 'simulacros'
-          }
 
      window.jsonpunto = {
             'filas' : {
@@ -228,9 +191,13 @@
                             }
 
                             if (('type' in  pp1[ca1]) && (pp1[ca1].type=='label') ) {
-                              p=document.createElement('p');
+                              p=document.createElement('p'); 
                               if (datos[ca1]!=undefined) {
+                                 datos[ca1]= datos[ca1]==true ? 'Si' : datos[ca1]==false ? 'No' : datos[ca1];
                                  tdCelda = document.createTextNode(datos[ca1])
+                                 p.appendChild(tdCelda);
+                              } else {
+                                 tdCelda = document.createTextNode('');
                                  p.appendChild(tdCelda);
                               }
                               div1.appendChild(p);
@@ -241,83 +208,12 @@
                     }
                   }
                   divp.appendChild(div);
-                  if ('pie' in jsonf) {
+               }
+               if ('pie' in jsonf) {
                        pie=document.createElement(jsonf.pie.type);
                        divp.appendChild(pie);
-                  }
                }
           $(divp).insertAfter(idforma);
      };
 
-     window.baja_simulacro = function (id,dg=null) {
-          $.ajax({
-                            type: 'delete',
-                            url:  mipath()+'api/simulacros/'+id,   /* obtiene el numero de RFC */
-                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                            success: function(data){
-                                  crearMensaje(true,"Atención:", ' El simulacro se dio de baja');
-                                  var pn=dg.parentNode;
-                                  pn.removeChild(dg);
-                                  validasimulacros();
-                                  return;
-                         },
-                            error: function( jqXhr, textStatus, errorThrown ){
-                                  var errores=jqXhr.responseJSON.errors;
-                                  for (var x in errores) {
-                                        crearMensaje(true,"Error", errores[x]);
-                                        break;
-                                 }
-                       }
-                  });
-     }
 
-     window.baja_puntor = function (id,dg=null) {
-          $.ajax({
-                            type: 'delete',
-                            url:  mipath()+'api/puntor/'+id,   /* obtiene el numero de RFC */
-                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                            success: function(data){
-                                  crearMensaje(true,"Atención:", ' El punto de reunión se dio de baja');
-                                  var pn=dg.parentNode;
-                                  pn.removeChild(dg);
-                                  validasimulacros();
-                                  return;
-                         },
-                            error: function( jqXhr, textStatus, errorThrown ){
-                                  var errores=jqXhr.responseJSON.errors;
-                                  for (var x in errores) {
-                                        crearMensaje(true,"Error", errores[x]);
-                                        break;
-                                 }
-                       }
-                  });
-     }
-
-
-     window.baja_comites = function (id,dg=null) {
-          $.ajax({
-                            type: 'delete',
-                            url:  mipath()+'api/comites/'+id,   /* obtiene el numero de RFC */
-                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                            success: function(data){
-                                  crearMensaje(true,"Atención:", ' El puesto del comite interno se dio de baja');
-                                  unapersona=data.data.figu[0].unapersona ? 1 : 0 ;
-                                  if (unapersona==1) {
-                                      x= new Option(data.data.figu[0].descripcion, data.data.figu[0].id);
-                                      x.setAttribute("data-unapersona", data.data.figu[0].unapersona ? "1" : "0" )
-                                      $('#id_figuras').append(x);
-                                  }
-                                  var pn=dg.parentNode;
-                                  pn.removeChild(dg);
-                                  desmarcapuesto(data.data.figu[0].descripcion,unapersona)
-                                  return;
-                         },
-                            error: function( jqXhr, textStatus, errorThrown ){
-                                  var errores=jqXhr.responseJSON.errors;
-                                  for (var x in errores) {
-                                        crearMensaje(true,"Error", errores[x]);
-                                        break;
-                                 }
-                       }
-                  });
-     }

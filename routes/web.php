@@ -19,6 +19,8 @@ use App\entidades;
 use App\situacionesjuridicas;
 use App\centros;
 use App\tiposituaciones;
+use App\tipodemandas;
+use App\resultados;
 use App\comoseentero;
 use App\estudios;
 use App\etnicas;
@@ -195,24 +197,50 @@ Route::group(['middleware' => ['auth:web']], function() {
               return view('estadistica-acreditados');
              });
 
-    Route::get('/inmuebles-registrados-secretaria/{id}', 'inmueblesController@detalleInmueble');
-
-    Route::get('/inmuebles-registrados/{rfc}', 'inmueblesController@inmueblesByEstablecimientos');
-
-    Route::get('expedientes/{id}',  function () {
+    Route::get('expedientes/0/{id}',  function ($id) {
+           log::debug('routes/web.php va a ejecutar expedientes / URL='.$id.' Request::path()='.\Request::path());
            $alcaldias = Alcaldias::all();
            $entidades = Entidades::all();
            $situacionesjuridicas = Situacionesjuridicas::all();
            $tiposituaciones = tiposituaciones::all();
+           $tipodemandas = tipodemandas::all()->orderBy('descripcion');
            $centros = centros::all();
+           $resultados = resultados::all();
+           $beneficiario = User::getconCatalogosbyID($id);
            $data = array (
               'alcaldias' => $alcaldias,
               'entidades' => $entidades,
               'situacionesjuridicas' => $situacionesjuridicas,
               'tiposituaciones' => $tiposituaciones,
-              'centros' => $centros
+              'centros' => $centros,
+              'tipodemandas' => $tipodemandas,
+              'resultados' => $resultados,
+              'beneficiario' => $beneficiario
            );
-              return view('expedientes')->with('data', $data);
+           return view('expedientes')->with('data', $data);
+    });
+
+    Route::get('expedientes/{idex}/{idben}',  function ($idex,$idben) {
+           log::debug('routes/web.php va a ejecutar expedientes / URL='.$idben.' Request::path()='.\Request::path());
+           $alcaldias = Alcaldias::all();
+           $entidades = Entidades::all();
+           $situacionesjuridicas = Situacionesjuridicas::all();
+           $tiposituaciones = tiposituaciones::all();
+           $tipodemandas = DB::table('tipodemandas')->orderBy('descripcion')->get();
+           $centros = centros::all();
+           $resultados = DB::table('resultados')->orderBy('descripcion')->get();
+           $beneficiario = User::getconCatalogosbyID($idben);
+           $data = array (
+              'alcaldias' => $alcaldias,
+              'entidades' => $entidades,
+              'situacionesjuridicas' => $situacionesjuridicas,
+              'tiposituaciones' => $tiposituaciones,
+              'centros' => $centros,
+              'tipodemandas' => $tipodemandas,
+              'resultados' => $resultados,
+              'beneficiario' => $beneficiario
+           );
+           return view('expedientes')->with('data', $data);
     });
 
     //Editar perfil

@@ -296,16 +296,16 @@ ul{
 }
 
 .Campos-obligatorios {
-  //width: 109px;
-  height: 12px;
+  //width: 333px;
+  height: 18px;
   font-family: Metropolis;
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.2;
+  line-height: 1.38;
   letter-spacing: normal;
-  color: #5d5d5d;
+  color: $brownish-grey;
 }
 
 .Policias-remitentes {
@@ -379,6 +379,7 @@ ul{
   line-height: normal;
   letter-spacing: normal;
   color: #5d5d5d;
+  cursor: pointer;
 }
 
 
@@ -534,7 +535,7 @@ ul{
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--pine-green);
+  color: $pine-green;
 }
 
 
@@ -542,4 +543,29 @@ ul{
   width: 4px;
   height: 52px;
   background-color: $teal;
+}
+
+.nombredelbeneficiario {
+//  width: 195px;
+  height: 32px;
+  font-family: Metropolis;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: normal;
+  color: $shamrock;
+}
+
+.incisos {
+  height: 18px;
+  font-family: Metropolis;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  color: $brownish-grey;
 }

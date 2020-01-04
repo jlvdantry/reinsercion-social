@@ -34,7 +34,7 @@ window.crearMensaje = function (error,titulo,mensaje,tiempo=2000) {
           tr.setAttribute('id','__sd');
           tr.setAttribute('data-pnid',trp.id);   /* id del node parent */
           thp=document.createElement('th');
-          thp.setAttribute('colspan','6');
+          thp.setAttribute('colspan','99');
 
           ta=document.createElement('table');
           ta.setAttribute('class','tabla-inmuebles');
@@ -234,9 +234,11 @@ window.crearMensaje = function (error,titulo,mensaje,tiempo=2000) {
       return window.location.protocol+'//'+window.location.host+pathName;
    }
 
+
+
    window.cambia_dato = function (e) {
                   e.preventDefault();
-                  var formdd = $('form[id="f_boleta"]')[0];
+                  var formdd = $('form[id="f_expediente"]')[0];
                   if ('id' in formdd.dataset) {
                          var id=formdd.dataset.id;
                   } else { var id=''; }
@@ -245,11 +247,17 @@ window.crearMensaje = function (error,titulo,mensaje,tiempo=2000) {
                   if (e.currentTarget.type=='radio') {
                      quedato=e.currentTarget.name.replace('wl_','');
                   }
+                  valor=e.currentTarget.value;
+                  if (e.currentTarget.type=="checkbox") {
+                     valor=e.currentTarget.checked;
+                  }
+
                   var Data1 = {};
-                        Data1[quedato] = e.currentTarget.value;
+                        Data1[quedato] = valor;
+                        Data1['idbeneficiario']=$('.nombredelbeneficiario')[0].dataset.id;
                     $.ajax({
                        type: 'put',
-                       url:  mipath()+'api/boletas/'+id,
+                       url:  mipath()+'api/expedientes/'+id,
                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                        data: Data1,
                        success: function(data){
