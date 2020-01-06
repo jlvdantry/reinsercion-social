@@ -44,7 +44,7 @@ DE REINSERCIÓN SOCIAL DE LA CIUDAD DE MÉXICO
      <div class="pl-0 d-flex col-lg-12">
         <div class="pl-0 pr-0 col-lg-3 d-flex justify-content-between align-items-center ">
            <div class="boton-regresar d-none">
-                <a id="boton-regresar" href="./usuarios-registrados"><img src="src/img/flecha-before.svg" alt=""> Regresar</a>
+                <a id="boton-regresar" href="./usuarios-registrados"><img src="{{ url('') }}/src/img/flecha-before.svg" alt=""> Regresar</a>
            </div>
         </div>
         <div class="col-lg-9 d-flex justify-content-end">
