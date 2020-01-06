@@ -207,6 +207,7 @@ Route::group(['middleware' => ['auth:web']], function() {
            $centros = centros::all();
            $resultados = resultados::all();
            $beneficiario = User::getconCatalogosbyID($id);
+           $escolaridades = DB::table('escolaridades')->orderBy('descripcion')->get();
            $data = array (
               'alcaldias' => $alcaldias,
               'entidades' => $entidades,
@@ -215,7 +216,8 @@ Route::group(['middleware' => ['auth:web']], function() {
               'centros' => $centros,
               'tipodemandas' => $tipodemandas,
               'resultados' => $resultados,
-              'beneficiario' => $beneficiario
+              'beneficiario' => $beneficiario,
+              'escolaridades' => $escolaridades
            );
            return view('expedientes')->with('data', $data);
     });
@@ -229,6 +231,7 @@ Route::group(['middleware' => ['auth:web']], function() {
            $tipodemandas = DB::table('tipodemandas')->orderBy('descripcion')->get();
            $centros = centros::all();
            $resultados = DB::table('resultados')->orderBy('descripcion')->get();
+           $escolaridades = DB::table('escolaridades')->orderBy('descripcion')->get();
            $beneficiario = User::getconCatalogosbyID($idben);
            $data = array (
               'alcaldias' => $alcaldias,
@@ -238,7 +241,8 @@ Route::group(['middleware' => ['auth:web']], function() {
               'centros' => $centros,
               'tipodemandas' => $tipodemandas,
               'resultados' => $resultados,
-              'beneficiario' => $beneficiario
+              'beneficiario' => $beneficiario,
+              'escolaridades' => $escolaridades
            );
            return view('expedientes')->with('data', $data);
     });

@@ -23,6 +23,12 @@ if ($('main')[0].id=='expedientes') {
         $('form[id="f_expediente"] :input').on('change', function(e) {
              cambia_dato(e);
         });
+        $('form[id="f_trabajo"] :input').on('change', function(e) {
+             cambia_dato(e);
+        });
+        $('form[id="f_educacion"] :input').on('change', function(e) {
+             cambia_dato(e);
+        });
 
 
         $("#idsituacionjuridica").change(function(e){
@@ -66,6 +72,8 @@ if ($('main')[0].id=='expedientes') {
                                 //formb.dataset.id=data[0].id;
                                 $('#des_expediente')[0].innerHTML='Expediente-'+data[0].carnet;
                                 muestradatos($('form[id="f_expediente"]')[0],data[0]);
+                                muestradatos($('form[id="f_trabajo"]')[0],data[0]);
+                                muestradatos($('form[id="f_educacion"]')[0],data[0]);
                                 if ('demandas' in data[0]) {
                                    for (si in data[0].demandas) {
                                            armagridhorizontal($('form[id="f_demandas"]')[0],jsonf,data[0].demandas[si])
@@ -252,7 +260,7 @@ if ($('main')[0].id=='expedientes') {
                     });
         });
 
-  $("#crear-expediente").click(function(e){
+  $('div[name="crear-expediente"]').click(function(e){
                   e.preventDefault();
                   var formdd = $('form[id="f_expediente"]')[0];
                   var Data1 = {

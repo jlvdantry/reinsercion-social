@@ -10920,7 +10920,6 @@ a:hover {
 }
 
 .Lugar-de-imparticin {
-  height: 17px;
   font-family: Metropolis;
   font-size: 14px;
   font-weight: bold;
@@ -10938,7 +10937,6 @@ a:hover {
 }
 
 .nombredelbeneficiario {
-  height: 32px;
   font-family: Metropolis;
   font-size: 18px;
   font-weight: bold;
@@ -10950,7 +10948,6 @@ a:hover {
 }
 
 .incisos {
-  height: 18px;
   font-family: Metropolis;
   font-size: 13px;
   font-weight: 500;
@@ -10959,6 +10956,7 @@ a:hover {
   line-height: 1.38;
   letter-spacing: normal;
   color: #5d5d5d;
+  padding: 0.5em;
 }
 
 .footer {

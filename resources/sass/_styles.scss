@@ -526,8 +526,6 @@ ul{
 }
 
 .Lugar-de-imparticin {
-//  width: 144px;
-  height: 17px;
   font-family: Metropolis;
   font-size: 14px;
   font-weight: bold;
@@ -546,8 +544,6 @@ ul{
 }
 
 .nombredelbeneficiario {
-//  width: 195px;
-  height: 32px;
   font-family: Metropolis;
   font-size: 18px;
   font-weight: bold;
@@ -559,7 +555,6 @@ ul{
 }
 
 .incisos {
-  height: 18px;
   font-family: Metropolis;
   font-size: 13px;
   font-weight: 500;
@@ -568,4 +563,5 @@ ul{
   line-height: 1.38;
   letter-spacing: normal;
   color: $brownish-grey;
+      padding: .5em;
 }
