@@ -17,7 +17,7 @@ export PGPASSWORD=$DB_PASSWORD
 cat > $0.sql << fin
 --update expedientes set estatus=0 where carnet='mimeta';
 select * from users;
-select * from eciviles;
+--select * from eciviles;
 fin
 psql -h $DB_HOST -d $DB_DATABASE -U $DB_USERNAME  < $0.sql
 ##psql -U $DB_USERNAME  < $0.sql     ## para crear la bse de datos

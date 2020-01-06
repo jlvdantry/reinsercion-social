@@ -130,12 +130,6 @@ class userController extends Controller
       Log::debug('userController.php entro en index');
       $filtro=array();
 
-      if ($request->has('rfc')) {
-        if (strlen($request->rfc)>0) {
-           array_push($filtro,['rfc', 'like',"%$request->rfc%"]);
-        }
-      }
-
       if ($request->has('idperfil')) {
         if (strlen($request->idperfil)>0) {
            array_push($filtro,['idperfil', '=',$request->idperfil]);
@@ -159,6 +153,7 @@ class userController extends Controller
            array_push($filtro,['nombres','like',"%$request->nombres%"]);
         }
       }
+/*
       if ($request->has('ape_pat')) {
         if (strlen($request->ape_pat)>0) {
            array_push($filtro,['ape_pat','like',"%$request->ape_pat%"]);
@@ -170,6 +165,7 @@ class userController extends Controller
         }
       }
       array_push($filtro,['ape_mat','like',"%$request->ape_mat%"]);
+*/
       array_push($filtro,['tipousuario','<>',1]);
 
       $datos = User::select('*',DB::Raw(

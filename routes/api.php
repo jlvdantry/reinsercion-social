@@ -10,7 +10,7 @@ Route::post('login', 'Auth\LoginController@login');
 
 Route::post('cambiacontra', 'userController@cambiacontra');
 Route::post('restacontra', 'userController@restacontra');
-Route::put('userso/{id}', 'userController@update');
+//Route::put('userso/{id}', 'userController@update');
 
 
 Route::group(['middleware' => 'auth:web'], function() {
