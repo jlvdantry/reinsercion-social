@@ -16,6 +16,7 @@ class CreateEcivilesTable extends Migration
         Schema::create('eciviles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('descripcion');
         });
     }
 

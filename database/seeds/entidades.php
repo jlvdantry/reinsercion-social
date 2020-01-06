@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class entidades extends Seeder
+class Entidades extends Seeder
 {
     /**
      * Run the database seeds.
