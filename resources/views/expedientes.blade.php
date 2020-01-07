@@ -14,12 +14,12 @@
 
       </div>
     <div id='Primercontacto'>
-      <div class="flex-nowrap row col-md-12 d-flex justify-content-between pr-0 mr-0">
+      <div class="row col-md-12 d-flex justify-content-between pr-0 mr-0">
                     <div class="row col-lg-5 d-flex justify-content-start pr-0 -Datos-Generales-">
                          <div class="nombredelbeneficiario" data-id={{ $data['beneficiario']->id }} >{{ $data['beneficiario']->nombrecompleto }} </div>
                     </div>
+                    <div class="row col-lg-7 campos-obligatorios d-flex justify-content-end">Los campos marcados con asterisco son obligatorios</div>
       </div>
-      <div class="row col-lg-12 campos-obligatorios d-flex justify-content-start">Los campos marcados con asterisco son obligatorios</div>
       <div id="c_primercontacto" name="tabi" class="d-none">
           <form id="f_expediente" data-id=''>
              <div class="Lugar-de-imparticin mt-2 mb-2">Datos generales</div>
@@ -447,7 +447,7 @@
         <div class="col-lg-4">
           <a class="btn-registro active" id="b_trabajo" data-toggle="tab" href="#c_trabajo" role="button">TRABAJO</a>
           <a class="btn-registro" id="b_educacion" data-toggle="tab" href="#c_educacion" role="button">EDUCACIÓN</a>
-          <a class="btn-registro" id="b_motivo" data-toggle="tab" href="#c_motivo" role="button">SALUD</a>
+          <a class="btn-registro" id="b_salud" data-toggle="tab" href="#c_salud" role="button">SALUD</a>
           <a class="btn-registro" id="b_quienfirma" data-toggle="tab" href="#c_quienfirma" role="button">RED FAMILIAR</a>
           <a class="btn-registro" id="b_quienfirma" data-toggle="tab" href="#c_quienfirma" role="button">RED SOCIAL E INSTITUCIONAL</a>
           <a class="btn-registro" id="b_quienfirma" data-toggle="tab" href="#c_quienfirma" role="button">CULTURA RECREACIÓN Y DEPORTE</a>
@@ -839,6 +839,522 @@
 
               </form>
             </div> <!-- Finaliza tab-Panel Domicilio -->
+
+            <div class="tab-pane fade" id="c_salud" >
+              <form id="f_salud" >
+                 <div class="Lugar-de-imparticin mt-2 mb-2">1. Acceso y atención a los servicios de salud</div>
+                 <div class="incisos">a) ¿Actualmente cuenta con algún servicio que le brinde atención médica? </div>
+             <div class="col-md-12  d-flex align-items-center justify-content-start flex-wrap pl-3">
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_ser_ninguno" id="sa_ser_ninguno" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_ser_ninguno" id="l_sa_ser_ninguno">
+                                       Ninguno
+                </label>
+               </div>
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_ser_imss" id="sa_ser_imss" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_ser_imss" id="l_sa_ser_imss">
+                                       IMSS
+                </label>
+               </div>
+             </div>
+
+             <div class="col-md-12  d-flex align-items-center justify-content-start flex-wrap pl-3">
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_ser_isste" id="sa_ser_isste" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_ser_isste" id="l_sa_ser_isste">
+                                       ISSSTTE
+                </label>
+               </div>
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="" id="sa_ser_privado" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_ser_privado" id="l_sa_ser_privado">
+                                       Privado
+                </label>
+               </div>
+             </div>
+
+             <div class="col-md-12  mb-3 d-flex align-items-center justify-content-start flex-wrap pl-3">
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_ser_popular" id="sa_ser_popular" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_ser_popular" id="l_sa_ser_popular">
+                                       POPULAR
+                </label>
+               </div>
+               <div class="col-md-3 pl-0 " id="nom">
+                     <!-- <label class="form-label-custom" for="de_otro" >Otro:</label> -->
+                     <input type="text" class="form-control form-control-custom street-names" id="sa_ser_otro" maxlength="50" placeholder="Especifique otro" >
+                     <div class="invalid-feedback">
+                             Asegúrate de introducir la información correctamente
+                    </div>
+                </div>
+             </div>
+                 <div class="Lugar-de-imparticin mt-2 mb-2">2. Estado de salud</div>
+                 <div class="incisos">a) ¿Cómo considera su estado de salud? </div>
+             <div class="row col-md-12   d-flex ">
+                  <div class="col-md-8 mb-1 pl-0 pt-1" id="nom">
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_estadosalud" id="bueno" value="1" >
+                    <label class="form-check-label label-custom-check" for="bueno">
+                      Bueno
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_estadosalud" id="regular" value="2" >
+                    <label class="form-check-label label-custom-check" for="tieneactano">
+                      Regular
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_estadosalud" id="malo" value="3" >
+                    <label class="form-check-label label-custom-check" for="malo">
+                      Regular
+                    </label>
+                   </div>
+                  </div>
+             </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label-custom" for="sa_porque">¿Por qué?</label>
+                    <textarea type="text" name="resultado" id="sa_porque" class="form-control form-control-custom street-names" placeholder="Escribe la razón" maxlength="1000" value="" ></textarea>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+                 <div class="incisos">b) ¿Tiene algún problema de salud?</div>
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-8 mb-1 pl-0 pt-1" id="nom">
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_tieneproblema" id="sa_tieneproblemasi" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_tieneproblemasi">
+                      Si
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_tieneproblema" id="sa_tieneproblemano" value="2" >
+                    <label class="form-check-label label-custom-check" for="sa_tieneproblemano">
+                      No
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_tieneproblema" id="sa_tieneproblemade" value="3" >
+                    <label class="form-check-label label-custom-check" for="sa_tieneproblemade">
+                      Desconoce
+                    </label>
+                   </div>
+                  </div>
+             </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label-custom" for="sa_cual">En caso de contestar afirmativamente, ¿cuál?</label>
+                    <textarea type="text" name="resultado" id="sa_cual" class="form-control form-control-custom street-names" placeholder="Escribe cual" maxlength="1000" value="" ></textarea>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+                 <div class="incisos">c) ¿Cuenta con tratamiento médico?</div>
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-8 mb-1 pl-0 pt-1" id="nom">
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_tratamiento" id="sa_tratamientosi" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_tratamientosi">
+                      Si
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_tratamiento" id="sa_tratamientono" value="0" >
+                    <label class="form-check-label label-custom-check" for="sa_tratamientono">
+                      No
+                    </label>
+                   </div>
+                  </div>
+             </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label-custom" for="sa_tratamientocual">En caso de contestar afirmativamente, ¿cuál?</label>
+                    <textarea type="text" name="resultado" id="sa_tratamientocual" class="form-control form-control-custom street-names" placeholder="Escribe cual" maxlength="1000" value="" ></textarea>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+
+                 <div class="incisos">d) ¿Desea asistir a valoración médica?</div>
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-8 mb-1 pl-0 pt-1" id="nom">
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_quierevaloracion" id="sa_quierevaloracionsi" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_quierevaloracionsi">
+                      Si
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_quierevaloracion" id="sa_quierevaloracionno" value="0" >
+                    <label class="form-check-label label-custom-check" for="sa_quierevaloracionno">
+                      No
+                    </label>
+                   </div>
+                  </div>
+             </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label-custom" for="sa_tratamientocual">En caso de contestar negativamente, ¿por qué?</label>
+                    <textarea type="text" name="sa_quierevaloracionporque" id="sa_quierevaloracionporque" class="form-control form-control-custom street-names" placeholder="Escribe cual" maxlength="1000" value="" ></textarea>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+                 <div class="incisos">e) ¿Vive con alguna discapacidad?  </div>
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-8 mb-1 pl-0 pt-1" id="nom">
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_discapacidad" id="sa_discapacidadsi" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_discapacidadsi">
+                      si
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_discapacidad" id="sa_discapacidadno" value="0" >
+                    <label class="form-check-label label-custom-check" for="sa_discapacidadno">
+                      no
+                    </label>
+                   </div>
+                  </div>
+             </div>
+             <div class="col-md-12  d-flex align-items-center justify-content-between flex-wrap pl-3">
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_visual" id="sa_visual" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_visual" id="l_sa_visual">
+                                      Visual 
+                </label>
+               </div>
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_intelectual" id="sa_intelectual" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_intelectual" id="l_sa_intelectual">
+                                       Intelectual
+                </label>
+               </div>
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_lenguaje" id="sa_lenguaje" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_lenguaje" id="l_sa_lenguaje">
+                                       Lenguaje
+                </label>
+               </div>
+             </div>
+
+             <div class="col-md-12  d-flex align-items-center justify-content-between flex-wrap pl-3">
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_auditiva" id="sa_auditiva" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_auditiva" id="l_sa_auditiva">
+                                      Auditiva
+                </label>
+               </div>
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_cuidadopersonal" id="sa_cuidadopersonal" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_intelectual" id="l_sa_cuidadopersonal">
+                                      Cuidado personal 
+                </label>
+               </div>
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_emocional" id="sa_emocional" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_emocional" id="l_sa_emocional">
+                                      Emocional 
+                </label>
+               </div>
+             </div>
+
+             <div class="col-md-12  mb-3 d-flex align-items-center justify-content-between flex-wrap pl-3">
+               <div class="col-md-3 d-flex align-items-center pr-0">
+                <input class="form-check-input" type="checkbox" name="sa_motora" id="sa_motora" value="1" >
+                <label class="form-check-label label-custom-check" for="sa_motora" id="l_sa_motora">
+                                      Motora
+                </label>
+               </div>
+             </div>
+                 <div class="incisos">f) Dificultad  </div>
+             <div class="row col-md-12  mb-3 d-flex ">
+                  <div class="col-md-12 mb-1 pl-0 pt-1" id="nom">
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_dificultad" id="sa_dificultadsi" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_discapacidadsi">
+                      Poca
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_dificultad" id="sa_dificultadno" value="2" >
+                    <label class="form-check-label label-custom-check" for="sa_dificultadno">
+                      Mucha
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_dificultad" id="sa_dificultadnp" value="3" >
+                    <label class="form-check-label label-custom-check" for="sa_dificultadnp">
+                      No puede hacerlo
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_dificultad" id="sa_dificultadsd" value="4" >
+                    <label class="form-check-label label-custom-check" for="sa_dificultadsd">
+                      Sin dificultad
+                    </label>
+                   </div>
+                  </div>
+             </div>
+                 <div class="incisos">g) Causa </div>
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-12 pl-0 pt-1 d-flex" id="nom">
+                   <div class="form-check-inline col-lg-4">
+                    <input class="form-check-input ml-2" type="radio" name="sa_causa" id="sa_causa1" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_causa1">
+                      Enfermedad
+                    </label>
+                   </div>
+                   <div class="form-check-inline col-lg-4">
+                    <input class="form-check-input ml-2" type="radio" name="sa_causa" id="sa_causa2" value="2" >
+                    <label class="form-check-label label-custom-check" for="sa_causa2">
+                      Sin dificultad
+                    </label>
+                   </div>
+                   <div class="form-check-inline col-lg-4">
+                    <input class="form-check-input ml-2" type="radio" name="sa_causa" id="sa_causa3" value="3" >
+                    <label class="form-check-label label-custom-check" for="sa_causa3">
+                      Accidente
+                    </label>
+                   </div>
+                  </div>
+             </div>
+
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-12 pl-0 pt-1 d-flex" id="nom">
+                   <div class="form-check-inline col-lg-4">
+                    <input class="form-check-input ml-2" type="radio" name="sa_causa" id="sa_causa4" value="4" >
+                    <label class="form-check-label label-custom-check" for="sa_causa4">
+                      Congénita
+                    </label>
+                   </div>
+                   <div class="form-check-inline col-lg-4">
+                    <input class="form-check-input ml-2" type="radio" name="sa_causa" id="sa_causa5" value="5" >
+                    <label class="form-check-label label-custom-check" for="sa_causa5">
+                      Edad
+                    </label>
+                   </div>
+                   <div class="form-check-inline col-lg-4">
+                    <input class="form-check-input ml-2" type="radio" name="sa_causa" id="sa_causa6" value="6" >
+                    <label class="form-check-label label-custom-check" for="sa_causa6">
+                      Otra
+                    </label>
+                   </div>
+                  </div>
+             </div>
+
+             <div class="row col-md-12  mb-3 d-flex ">
+                  <div class="col-md-12 pl-0 pt-1 d-flex" id="nom">
+                   <div class="form-check-inline col-lg-4">
+                    <input class="form-check-input ml-2" type="radio" name="sa_causa" id="sa_causa7" value="7" >
+                    <label class="form-check-label label-custom-check" for="sa_causa7">
+                      Violencia
+                    </label>
+                   </div>
+                  </div>
+             </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label-custom" for="sa_tratamientocual">Diagnóstico</label>
+                    <textarea type="text" name="sa_diagnostico" id="sa_diagnostico" class="form-control form-control-custom street-names" placeholder="Escribe el diagnóstico" maxlength="1000" value="" ></textarea>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-8 mb-1 pt-1" id="nom">
+                   <legend class="form-label-custom">¿Se indica tratamiento?</legend>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_indicatratamiento" id="sa_indicatratamiento1" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_indicatratamiento">
+                      si
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_indicatratamiento" id="sa_indicatratamiento0" value="0" >
+                    <label class="form-check-label label-custom-check" for="sa_indicatratamiento0">
+                      no
+                    </label>
+                   </div>
+                  </div>
+             </div>
+             <div class="row col-md-12  d-flex ">
+                  <div class="col-md-8 mb-1 pt-1" id="nom">
+                   <legend class="form-label-custom">¿Se realiza canalización a servicio médico?  </legend>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_secanaliza" id="sa_secanaliza1" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_secanaliza">
+                      si
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_secanaliza" id="sa_secanaliza0" value="0" >
+                    <label class="form-check-label label-custom-check" for="sa_secanaliza0">
+                      no
+                    </label>
+                   </div>
+                  </div>
+             </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label-custom" for="sa_tratamientocuales">¿Cúal es?</label>
+                    <textarea type="text" name="sa_secanalizacuales" id="sa_secanalizacuales" class="form-control form-control-custom street-names" placeholder="Escribe a cuál servicio médico" maxlength="1000" value="" ></textarea>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label class="form-label-custom" for="sa_observacionessalud">Observaciones</label>
+                    <textarea type="text" name="sa_observacionessalud" id="sa_observacionessalud" class="form-control form-control-custom street-names" placeholder="Escribe las observaciones" maxlength="1000" value="" ></textarea>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+              </form>
+              <form id="f_salud_sustancias" >
+                 <div class="Lugar-de-imparticin mt-2 mb-2">3. Relación con las sustancias psicoactivas</div>
+             <div class="incisos">a) Abuso y dependencia de alcohol y otras sustancias</div>
+        <div class="row pl-3">
+          <div class="col-md-12 mb-3" id="nom">
+           <legend class="form-label-custom">¿En los últimos 12 meses, tomó alguna de estas sustancias, en más de una ocasión, para sentirse mejor o para cambiar su estado de ánimo?</legend>
+           <div class="form-check-inline col-md-2 ">
+            <input class="form-check-input ml-2" type="radio" name="sa_tomodrogas" id="sa_tomodrogas1" value="1" >
+            <label class="form-check-label label-custom-check" for="sa_tomodrogas1">
+              Si
+            </label>
+           </div>
+           <div class="form-check-inline col-md-2 ">
+            <input class="form-check-input ml-2" type="radio" name="sa_tomodrogas" id="sa_tomodrogas0" value="0" >
+            <label class="form-check-label label-custom-check" for="sa_tomodrogas0">
+              No
+            </label>
+           </div>
+          </div>
+        </div>
+
+             <div class="row col-md-12 mb-2">
+               <div class="col-md-4 ">
+                  <label class="form-label-custom" for="sa_idtiposustancia">Tipo de sustancia:</label>
+                  <select class="form-control form-control-custom" id="sa_idtiposustancia" name="sa_idtiposustancia" required>
+                      <option disabled value="" selected hidden>Selecciona una</option>
+                      @foreach ($data['tiposustancias'] as $tipo)
+                          <option value="{{ $tipo->id }}">{{ $tipo->descripcion }}</option>
+                      @endforeach
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecciona una opción
+                  </div>
+               </div>
+                  <div class="col-md-4 ">
+                    <label class="form-label-custom" for="delito">Edad de inicio:</label>
+                    <input type="text" name="delito" id="delito" class="form-control form-control-custom numbers" placeholder="00" maxlength="2" value="" required>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+
+               <div class="col-md-4 ">
+                  <label class="form-label-custom" for="idtipodesituacion">Frecuencia:</label>
+                  <select class="form-control form-control-custom" id="sa_idfrecuencia" name="sa_idfrecuencia" required>
+                      <option disabled value="" selected hidden>Selecciona una</option>
+                      @foreach ($data['frecuencias'] as $tipo)
+                          <option value="{{ $tipo->id }}">{{ $tipo->descripcion }}</option>
+                      @endforeach
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecciona una opción
+                  </div>
+               </div>
+             </div>
+             <div class="row col-md-12 mb-2">
+                  <div class="col-md-12 ">
+                    <label class="form-label-custom" for="sa_cuando">Cuándo fue el primer contacto con la sustancia:</label>
+                    <input type="text" name="delito" id="sa_cuando" class="form-control form-control-custom numbers" placeholder="Escribe cuando" maxlength="100" value="" required>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+             </div>
+
+             <div class="row col-md-12 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label-custom" for="sa_tiempo">Tiempo de uso:</label>
+                    <input type="text" name="sa_tiempo" id="sa_tiempo" class="form-control form-control-custom numbers" placeholder="Escribe tiempo de uso" maxlength="100" value="" required>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-1 pt-1" id="nom">
+                   <legend class="form-label-custom">¿Ha tratado de reducir o dejar su consumo?</legend>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_intentado" id="sa_intentado1" value="1" >
+                    <label class="form-check-label label-custom-check" for="sa_intentado1">
+                      si
+                    </label>
+                   </div>
+                   <div class="form-check-inline">
+                    <input class="form-check-input ml-2" type="radio" name="sa_intentado" id="sa_intentado0" value="0" >
+                    <label class="form-check-label label-custom-check" for="sa_intentado0">
+                      no
+                    </label>
+                   </div>
+                  </div>
+             </div>
+             <div class="incisos">b) Experiencias terapéuticas para la atención de farmacodependencias</div>
+             <div class="row col-md-12 mb-2">
+               <div class="col-md-4 ">
+                  <label class="form-label-custom" for="sa_idtipodeatencion">Tipo de atención:</label>
+                  <select class="form-control form-control-custom" id="sa_idtipodeatencion" name="sa_idtipodeatencion" required>
+                      <option disabled value="" selected hidden>Selecciona una</option>
+                      @foreach ($data['tipodeatenciones'] as $tipo)
+                          <option value="{{ $tipo->id }}">{{ $tipo->descripcion }}</option>
+                      @endforeach
+                  </select>
+                  <div class="invalid-feedback">
+                    Selecciona una opción
+                  </div>
+               </div>
+                  <div class="col-md-8 ">
+                    <label class="form-label-custom" for="sa_duracion">Duración de la experiencia:</label>
+                    <input type="text" name="sa_duracion" id="sa_duracion" class="form-control form-control-custom numbers" placeholder="00" maxlength="2" value="" required>
+                    <div class="invalid-feedback">
+                      Asegúrate de introducir la información correctamente
+                    </div>
+                  </div>
+             </div>
+        <div class="row pl-3">
+          <div class="col-md-12 mb-3" id="nom">
+           <legend class="form-label-custom">Reincidencia en el consumo</legend>
+           <div class="form-check-inline col-md-2 ">
+            <input class="form-check-input ml-2" type="radio" name="sa_recaido" id="sa_recaido1" value="1" >
+            <label class="form-check-label label-custom-check" for="sa_recaido1">
+              Si
+            </label>
+           </div>
+           <div class="form-check-inline col-md-2 ">
+            <input class="form-check-input ml-2" type="radio" name="sa_recaido" id="sa_recaido0" value="0" >
+            <label class="form-check-label label-custom-check" for="sa_recaido0">
+              No
+            </label>
+           </div>
+          </div>
+        </div>
+             <div class="incisos">c) Observaciones</div>
+        <div class="row mb-4 ml-1">
+            <div class="col-md-12">
+               <textarea type="text" class="form-control form-control-custom street-names" id="sa_observacionesdrogas" maxlength="1000" placeholder="La persona entrevistadora deberá indagar si el tema de consumo es un acto permitido y/o normalizado dentro del núcleo familiar, las actitudes o acciones que los integrantes de la familia han realizado con respecto al tema.  De igual manera se deberá describir la representación social que tiene el usuario/a sobre “consumir” beneficios/problemas, etc. " ></textarea>
+               <div class="invalid-feedback">
+                           Asegúrate de introducir la información correctamente
+               </div>
+             </div>
+        </div>
+
+
+
+
+
+
+              </form>
+
+            </div> <!-- Finaliza tab-Panel educacion -->
+
       </div>
 
 

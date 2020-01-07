@@ -20,6 +20,8 @@ use App\situacionesjuridicas;
 use App\centros;
 use App\tiposituaciones;
 use App\tipodemandas;
+use App\tipodeatenciones;
+use App\tiposustancias;
 use App\resultados;
 use App\comoseentero;
 use App\estudios;
@@ -27,6 +29,7 @@ use App\etnicas;
 use App\ocupaciones;
 use App\eciviles;
 use App\grupo_actividades;
+use App\frecuencias;
 use App\Http\Controllers\userController;
 log::debug('routes/web.php inioio URL='.URL::current().' Request::path()='.\Request::path());
 Route::get('/', function () {
@@ -204,6 +207,9 @@ Route::group(['middleware' => ['auth:web']], function() {
            $situacionesjuridicas = Situacionesjuridicas::all();
            $tiposituaciones = tiposituaciones::all();
            $tipodemandas = DB::table('tipodemandas')->orderBy('descripcion')->get();
+           $tipodeatenciones = DB::table('tipodeatenciones')->orderBy('descripcion')->get();
+           $frecuencias = DB::table('frecuencias')->orderBy('descripcion')->get();
+           $tiposustancias = DB::table('tiposustancias')->orderBy('descripcion')->get();
            $centros = centros::all();
            $resultados = resultados::all();
            $beneficiario = User::getconCatalogosbyID($id);
@@ -213,8 +219,11 @@ Route::group(['middleware' => ['auth:web']], function() {
               'entidades' => $entidades,
               'situacionesjuridicas' => $situacionesjuridicas,
               'tiposituaciones' => $tiposituaciones,
+              'tiposustancias' => $tiposustancias,
+              'frecuencias' => $frecuencias,
               'centros' => $centros,
               'tipodemandas' => $tipodemandas,
+              'tipodeatenciones' => $tipodeatenciones,
               'resultados' => $resultados,
               'beneficiario' => $beneficiario,
               'escolaridades' => $escolaridades
@@ -229,6 +238,9 @@ Route::group(['middleware' => ['auth:web']], function() {
            $situacionesjuridicas = Situacionesjuridicas::all();
            $tiposituaciones = tiposituaciones::all();
            $tipodemandas = DB::table('tipodemandas')->orderBy('descripcion')->get();
+           $frecuencias = DB::table('frecuencias')->orderBy('descripcion')->get();
+           $tiposustancias = DB::table('tiposustancias')->orderBy('descripcion')->get();
+           $tipodeatenciones = DB::table('tipodeatenciones')->orderBy('descripcion')->get();
            $centros = centros::all();
            $resultados = DB::table('resultados')->orderBy('descripcion')->get();
            $escolaridades = DB::table('escolaridades')->orderBy('descripcion')->get();
@@ -238,6 +250,9 @@ Route::group(['middleware' => ['auth:web']], function() {
               'entidades' => $entidades,
               'situacionesjuridicas' => $situacionesjuridicas,
               'tiposituaciones' => $tiposituaciones,
+              'tiposustancias' => $tiposustancias,
+              'tipodeatenciones' => $tipodeatenciones,
+              'frecuencias' => $frecuencias,
               'centros' => $centros,
               'tipodemandas' => $tipodemandas,
               'resultados' => $resultados,
